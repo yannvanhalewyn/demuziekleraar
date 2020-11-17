@@ -41,7 +41,7 @@
     <div class="bg-blue-700 py-24">
         <div class="flex max-w-6xl mx-auto">
             <div class="w-1/2">
-                <div class="img-frame w-112 h-84 border-white" style="background-image: url({{ .images.image2 }})"></div>
+                <div class="img-frame w-112 h-84 border-white" style="background-image: url({{ .groupLessons.image }})"></div>
             </div>
             <div class="w-1/2">
                 <div class="relative">
@@ -52,7 +52,7 @@
                 <div class="relative flex flex-col justify-between h-full w-112 ml-auto">
                     <h3 class="text-3xl font-extrabold text-white">Groepslessen</h3>
                     <p class="text-blue-100 leading-relaxed tracking-wide">
-                        {{ .groupLessons | markdownify  }}
+                        {{ .groupLessons.description | markdownify  }}
                     </p>
                     <div class="text-center">
                         <button class="btn btn--s bg-white text-blue-700 hover:bg-blue-700 border-white border-2 hover:text-white">
