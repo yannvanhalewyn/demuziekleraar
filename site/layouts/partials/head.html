@@ -1,6 +1,7 @@
 <head>
+  {{ $description :=  replace (.Title | markdownify | plainify) "\n" " " }}
 
-  <title>{{ $.Site.Title }}</title>
+  <title>{{ $.Site.Title }} | {{ $description }}</title>
 
   {{ $stylesheet := .Site.Data.webpack.main }}
   {{ with $stylesheet.css }}
@@ -24,12 +25,12 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
 
-  <!-- Open Graph TODO title -->
+  <!-- Open Graph and SEO -->
+  <meta name="description" content="{{ .Site.Home.Params.seo.description }}">
   <meta property="og:type" content="business.business">
-  <meta property="og:title" content="{{ $.Site.Title }} | Premium muzieklessen in het gooi.">
+  <meta property="og:title" content="{{ $.Site.Title }} | {{ $description }}">
   <meta property="og:url" content="/">
-  <!-- TODO  -->
-  <meta property="og:image" content="/img/og-image.jpg">
+  <meta property="og:image" content="{{ .Site.Home.Params.seo.image }}">
 
   {{ if .IsHome }}
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
