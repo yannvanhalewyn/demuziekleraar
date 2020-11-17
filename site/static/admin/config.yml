@@ -1,11 +1,12 @@
+locale: 'nl'
 backend:
   name: git-gateway
 
 # navigate to /admin/# instead of /admin# to see admin panel
 local_backend: true
 
-media_folder: "site/static/img" # Folder where user uploaded files should go
-public_folder: "img"
+media_folder: "site/static/media" # Folder where user uploaded files should go
+public_folder: "media" # Url prefix saved when uploading / choosing media
 
 logo_url: "/img/logo.svg"
 
@@ -96,7 +97,7 @@ collections: # A list of collections the CMS should be able to edit
                 minimal: true
               - label: Afbeelding
                 name: image
-                hint: Deze afbeelding krijg je te zien als je een link deelt naar je website (op bijvoorbeeld facebook of WhatsApp)
+                hint: Deze afbeelding krijg je te zien als je een link deelt naar je website (op bijvoorbeeld Facebook of WhatsApp)
                 widget: image
       - file: "site/content/contact/_index.md"
         name: "contact"

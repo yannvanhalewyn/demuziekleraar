@@ -31,20 +31,34 @@ button:active {
         @apply bg-red-600
 }
 
+.hero-bg-oval {
+    @apply bg-no-repeat;
+    background-image: url('/img/quarter-oval.svg');
+    background-size: 110% 100%;
+
+    @screen md {
+        background-size: 50% 100%
+    }
+}
+
+.m-app {
+    @apply max-w-6xl mx-auto p-6;
+}
+
 .hero-title strong {
     @apply text-blue-900;
 }
 
 .hero-image-1 {
     transform: rotate(-13deg);
-    top: 2.5rem;
-    left: 2.5rem;
+    top: -4.5rem;
+    left: 2rem;
 }
 
 .hero-image-2 {
     transform: rotate(9deg);
-    right: 2.875rem;
-    top: -5rem;
+    bottom: -4.5rem;
+    right: 2rem;
 }
 
 .img-frame {
