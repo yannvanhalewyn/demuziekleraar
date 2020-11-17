@@ -15,22 +15,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
-	<!-- TODO Favicons -->
-	<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-	<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
-	<link rel="manifest" href="/manifest.json">
-	<link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#ff4400">
-	<meta name="theme-color" content="#fff">
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
 
-	<!-- Open Graph TODO title -->
-	<meta property="og:type" content="business.business">
-	<meta property="og:title" content="{{ $.Site.Title }} | Premium muzieklessen in het gooi.">
-	<meta property="og:url" content="/">
+  <!-- Open Graph TODO title -->
+  <meta property="og:type" content="business.business">
+  <meta property="og:title" content="{{ $.Site.Title }} | Premium muzieklessen in het gooi.">
+  <meta property="og:url" content="/">
   <!-- TODO  -->
-	<meta property="og:image" content="/img/og-image.jpg">
+  <meta property="og:image" content="/img/og-image.jpg">
 
   {{ if .IsHome }}
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   {{ end }}
 </head>
