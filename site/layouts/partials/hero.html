@@ -4,6 +4,8 @@
         <div class="absolute bottom-0 inset-x-0 h-48 clip-triangle bg-blue-700"></div>
         <!-- display relative to be above triangle clip background on mobile -->
         <div class="relative flex flex-col md:flex-row m-app" >
+
+            <!-- Heading and CTA -->
             <div class="flex-1 px-6 md:pl-0 md:pr-12 lg:pr-40 py-12 md:py-24 lg:py-32 text-white tracking-wide">
                 <h1 class="hero-title text-2xl md:text-3xl font-extrabold">
                     {{ .title | markdownify }}
@@ -26,7 +28,9 @@
                     </button>
                 </div>
             </div>
-            <div class="flex-1 mt-4 lg:-mx-12 md:mt-0">
+
+            <!-- Images -->
+            <div class="flex-1 lg:-mx-12 md:mt-0">
                 <div class="relative flex-grow mt-16 md:mt-24">
                     <div class="absolute md:z-30 w-40 h-40 sm:w-48 sm:h-48 lg:w-48 lg:h-48 img-frame hero-image-1 border-blue-500" style="background-image: url({{ .images.image1 }})"></div>
                     <div class="relative md:z-20 w-48 h-48 sm:w-64 sm:h-64 lg:w-84 lg:h-84 mx-auto img-frame border-blue-500" style="background-image: url({{ .images.image2 }})"></div>
@@ -40,7 +44,7 @@
     <!-- The title and icon are a ping pong breakpoint, it starts off left, on MD it
          goes right and up, and on alg back left. -->
 
-    <div class="bg-blue-700 md:-mt-24 lg:mt-0 py-16 md:pt-0 lg:py-24">
+    <div class="bg-blue-700 md:-mt-24 lg:mt-0 py-32 md:pt-0 lg:py-24">
         <div class="flex flex-col lg:flex-row-reverse items-center lg:items-stretch m-app">
 
             <!-- Article -->
