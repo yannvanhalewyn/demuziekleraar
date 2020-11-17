@@ -2,8 +2,18 @@
 
 {{ partial "hero" .Params }}
 
-<pre class="hidden px-12 py-12 bg-gray-900 text-white">
+<pre class="px-12 py-12 bg-gray-900 text-white w-screen overflow-scroll">
+// .Params
 {{ .Params | jsonify (dict "prefix" "  " "indent" "  ") }}
+<br/>
+// .Site
+{{ $.Site | jsonify (dict "prefix" "  " "indent" "  ") }}
+<br/>
+// .AllPages[0]
+{{ (index $.Site.AllPages 0).Params | jsonify (dict "prefix" "  " "indent" "  ") }}
+<br/>
+// .Home
+{{ $.Site.Home.Params | jsonify (dict "prefix" "  " "indent" "  ") }}
 </pre>
 
 {{ end }}

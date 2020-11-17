@@ -20,4 +20,7 @@ pricing:
   plans: []
   heading: "  "
   description: " "
+seo:
+  description: De muziekleraar geeft muzieklessen aan kinderen en het is heel leuk.
+  image: img/logo.svg
 ---

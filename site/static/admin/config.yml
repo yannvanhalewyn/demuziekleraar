@@ -7,6 +7,8 @@ local_backend: true
 media_folder: "site/static/img" # Folder where user uploaded files should go
 public_folder: "img"
 
+logo_url: "/img/logo.svg"
+
 collections: # A list of collections the CMS should be able to edit
   - name: "pages"
     label: "Pages"
@@ -15,11 +17,11 @@ collections: # A list of collections the CMS should be able to edit
         name: "home"
         label: "Home Page"
         fields:
-          - label: Title
+          - label: Titel
             name: title
             widget: markdown
             minimal: true
-          - label: Subtitle
+          - label: Subtitel
             name: subtitle
             widget: markdown
             minimal: true
@@ -47,7 +49,7 @@ collections: # A list of collections the CMS should be able to edit
                 name: description
                 widget: markdown
                 minimal: true
-          - label: Testimonials
+          - label: Getuigenissen
             name: testimonials
             widget: list
             fields:
@@ -57,7 +59,7 @@ collections: # A list of collections the CMS should be able to edit
               - label: Author
                 name: author
                 widget: string
-          - label: Pricing
+          - label: Prijzen
             name: pricing
             widget: object
             fields:
@@ -83,6 +85,19 @@ collections: # A list of collections the CMS should be able to edit
                   - label: Items
                     name: items
                     widget: list
+          - label: SEO
+            name: seo
+            widget: object
+            fields:
+              - label: Beschrijving
+                name: description
+                widget: text
+                hint: Deze beschrijving wordt gelezen door google en is te zien in het google zoekresultaat.
+                minimal: true
+              - label: Afbeelding
+                name: image
+                hint: Deze afbeelding krijg je te zien als je een link deelt naar je website (op bijvoorbeeld facebook of WhatsApp)
+                widget: image
       - file: "site/content/contact/_index.md"
         name: "contact"
         label: "Contact Page"
