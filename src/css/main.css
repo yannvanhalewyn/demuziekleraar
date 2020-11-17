@@ -42,7 +42,9 @@ button:active {
 }
 
 .m-app {
-    @apply max-w-6xl mx-auto p-6;
+    @apply max-w-6xl mx-auto p-3;
+    @screen sm { @apply p-6; }
+    @screen md { @apply px-12 py-4; }
 }
 
 .hero-title strong {
