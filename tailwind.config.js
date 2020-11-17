@@ -1,9 +1,13 @@
 module.exports = {
   future: {
     // removeDeprecatedGapUtilities: true,
-    // purgeLayersByDefault: true,
+    purgeLayersByDefault: true,
   },
-  purge: [],
+  purge: {
+    content: [
+      "site/layouts/**/*.html"
+    ]
+  },
   theme: {
     extend: {
       rotate: {
