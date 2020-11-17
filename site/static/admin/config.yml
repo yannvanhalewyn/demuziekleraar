@@ -17,13 +17,28 @@ collections: # A list of collections the CMS should be able to edit
         fields:
           - label: Title
             name: title
-            widget: string
+            widget: markdown
+            minimal: true
           - label: Subtitle
             name: subtitle
-            widget: string
-          - label: Image
-            name: image
-            widget: image
+            widget: markdown
+            minimal: true
+          - label: Images
+            name: images
+            widget: object
+            fields:
+              - label: Image 1
+                name: image1
+                widget: image
+              - label: Image 2
+                name: image2
+                widget: image
+              - label: Image 3
+                name: image3
+                widget: image
+          - label: Groepslessen
+            name: groupLessons
+            widget: markdown
           - label: Testimonials
             name: testimonials
             widget: list
