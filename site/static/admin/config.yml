@@ -38,7 +38,15 @@ collections: # A list of collections the CMS should be able to edit
                 widget: image
           - label: Groepslessen
             name: groupLessons
-            widget: markdown
+            widget: object
+            fields:
+              - label: Afbeelding
+                name: image
+                widget: image
+              - label: Bescrijving
+                name: description
+                widget: markdown
+                minimal: true
           - label: Testimonials
             name: testimonials
             widget: list

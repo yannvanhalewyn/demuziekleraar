@@ -48,7 +48,7 @@ button:active {
 }
 
 .img-frame {
-    @apply bg-no-repeat bg-cover border-6 rounded-4xl;
+    @apply bg-no-repeat bg-cover bg-center border-6 rounded-4xl
 }
 
 
