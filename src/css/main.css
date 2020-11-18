@@ -66,11 +66,16 @@ button:active {
 'md': '768px',
 'lg': '1024px',
 'xl': '1280px', */
-.m-app {
-    @apply max-w-6xl mx-auto px-4 py-3;
+.m-container {
+    max-width: 80rem;
+    @apply mx-auto px-6 py-3;
     @screen xs { @apply px-10 py-3; }
     @screen sm { @apply px-12 py-6; }
     @screen md { @apply px-12 py-4; }
+}
+
+.strong-orange-500 strong {
+    @apply text-orange-500;
 }
 
 .hero-title strong {

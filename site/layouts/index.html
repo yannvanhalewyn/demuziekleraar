@@ -1,17 +1,19 @@
 {{ define "main" }}
 
+{{ partial "svg-injection" . }}
+
 {{ partial "hero" .Params }}
 
 {{ range $idx, $lessonGroep := .Params.lessonGroups }}
 {{ partial "lesson-group" (dict "lessonGroup" $lessonGroep "flipTeacher" (not (modBool $idx 2))) }}
 {{ end }}
 
+{{ partial "pricing" (dict "pricingModels" .Site.Data.pricing.pricing_models)}}
+
 <pre class="hidden px-12 py-12 bg-gray-900 text-white w-screen overflow-scroll">
+
 // .Params
 {{ .Params | jsonify (dict "prefix" "  " "indent" "  ") }}
-    <br/>
-// .Site
-{{ $.Site | jsonify (dict "prefix" "  " "indent" "  ") }}
     <br/>
 // .AllPages[0]
 {{ (index $.Site.AllPages 0).Params | jsonify (dict "prefix" "  " "indent" "  ") }}
@@ -19,8 +21,6 @@
 // .Home
 {{ $.Site.Home.Params | jsonify (dict "prefix" "  " "indent" "  ") }}
 
-// Debug
-{{ where .Data.Pages "Type" "general" }}
 </pre>
 
 {{ end }}
