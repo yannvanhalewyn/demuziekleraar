@@ -7,13 +7,17 @@
 
             <!-- Heading and CTA -->
             <div class="flex-1 md:pr-12 lg:pr-40 py-12 md:py-24 lg:py-32 text-white tracking-wide">
+
                 <h1 class="hero-title text-2xl md:text-3xl font-extrabold">
                     {{ .title | markdownify }}
                 </h1>
+
                 <h2 class="mt-8 leading-relaxed">
                     {{ .subtitle | markdownify }}
                 </h2>
+
                 <div class="text-center">
+
                     <button class="btn btn--red mt-12 shadow-lg group">
                         <div class="flex items-center">
                             <div class="group-hover:animation-spin group-hover:animation-duration-100 group-hover:animation-1">
@@ -26,15 +30,16 @@
                             </span>
                         </div>
                     </button>
+
                 </div>
             </div>
 
             <!-- Images -->
             <div class="flex-1 lg:-mx-12 md:mt-0">
                 <div class="relative flex-grow mt-16 md:mt-24">
-                    <div class="absolute md:z-30 w-40 h-40 sm:w-48 sm:h-48 lg:w-48 lg:h-48 img-frame hero-image-1 border-blue-500" style="background-image: url({{ .images.image1 }})"></div>
-                    <div class="relative md:z-20 w-48 h-48 sm:w-64 sm:h-64 lg:w-84 lg:h-84 mx-auto img-frame border-blue-500" style="background-image: url({{ .images.image2 }})"></div>
-                    <div class="absolute md:z-30 w-40 h-40 sm:w-48 sm:h-48 lg:w-48 lg:h-48 img-frame hero-image-2 border-blue-500" style="background-image: url({{ .images.image3 }})"></div>
+                    <div class="absolute sm:z-30 md:z-0 lg:z-30 w-40 h-40 sm:w-48 sm:h-48 lg:w-48 lg:h-48 img-frame hero-image-1 border-blue-500" style="background-image: url({{ .images.image1 }})"></div>
+                    <div class="relative sm:z-20 md:z-0 lg:z-20 w-48 h-48 sm:w-64 sm:h-64 lg:w-84 lg:h-84 mx-auto img-frame border-blue-500" style="background-image: url({{ .images.image2 }})"></div>
+                    <div class="absolute sm:z-30 md:z-0 lg:z-30 w-40 h-40 sm:w-48 sm:h-48 lg:w-48 lg:h-48 img-frame hero-image-2 border-blue-500" style="background-image: url({{ .images.image3 }})"></div>
                 </div>
             </div>
         </div>
