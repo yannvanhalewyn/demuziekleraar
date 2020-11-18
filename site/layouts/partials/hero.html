@@ -6,7 +6,7 @@
         <div class="relative flex flex-col md:flex-row m-app" >
 
             <!-- Heading and CTA -->
-            <div class="flex-1 px-6 md:pl-0 md:pr-12 lg:pr-40 py-12 md:py-24 lg:py-32 text-white tracking-wide">
+            <div class="flex-1 md:pr-12 lg:pr-40 py-12 md:py-24 lg:py-32 text-white tracking-wide">
                 <h1 class="hero-title text-2xl md:text-3xl font-extrabold">
                     {{ .title | markdownify }}
                 </h1>
@@ -44,21 +44,23 @@
     <!-- The title and icon are a ping pong breakpoint, it starts off left, on MD it
          goes right and up, and on alg back left. -->
 
-    <div class="bg-blue-700 md:-mt-24 lg:mt-0 py-32 md:pt-0 lg:py-24">
+    <div class="bg-blue-700 md:-mt-24 lg:mt-0 py-20 sm:py-32 md:pt-0 lg:pb-24">
         <div class="flex flex-col lg:flex-row-reverse items-center lg:items-stretch m-app">
 
             <!-- Article -->
             <div class="flex-1">
                 <!-- BG Group icon -->
                 <div class="relative">
-                    <svg class="w-64 h-64 fill-current text-blue-800 opacity-50 absolute md:right-0 lg:right-auto -mt-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <svg class="w-64 h-64 fill-current text-blue-800 opacity-50 absolute md:right-0 lg:right-auto -mt-8 lg:ml-16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M12.3,12.22A4.92,4.92,0,0,0,14,8.5a5,5,0,0,0-10,0,4.92,4.92,0,0,0,1.7,3.72A8,8,0,0,0,1,19.5a1,1,0,0,0,2,0,6,6,0,0,1,12,0,1,1,0,0,0,2,0A8,8,0,0,0,12.3,12.22ZM9,11.5a3,3,0,1,1,3-3A3,3,0,0,1,9,11.5Zm9.74.32A5,5,0,0,0,15,3.5a1,1,0,0,0,0,2,3,3,0,0,1,3,3,3,3,0,0,1-1.5,2.59,1,1,0,0,0-.5.84,1,1,0,0,0,.45.86l.39.26.13.07a7,7,0,0,1,4,6.38,1,1,0,0,0,2,0A9,9,0,0,0,18.74,11.82Z"/>
                     </svg>
                 </div>
 
                 <!-- Body -->
-                <div class="relative flex flex-col justify-between h-full max-w-md ml-auto">
-                    <h3 class="text-2xl md:text-3xl md:text-right lg:text-left font-extrabold text-white">Groepslessen</h3>
+                <div class="relative md:max-w-md lg:ml-auto">
+                    <h3 class="heading-2 md:text-right lg:text-left text-white">
+                        Groepslessen
+                    </h3>
                     <p class="mt-8 text-blue-100 leading-relaxed tracking-wide">
                         {{ .groupLessons.description | markdownify  }}
                     </p>
@@ -71,8 +73,8 @@
             </div>
 
             <!-- Image -->
-            <div class="flex-1 w-full mt-12 lg:mt-0">
-                <div class="max-w-md h-72 lg:h-full mx-auto lg:mx-0 img-frame border-white" style="background-image: url({{ .groupLessons.image }})"></div>
+            <div class="flex-1 w-full mt-12 lg:mt-0 md:max-w-md">
+                <div class="h-72 sm:h-112 md:h-72 lg:h-full mx-auto lg:mx-0 img-frame border-white" style="background-image: url({{ .groupLessons.image }})"></div>
             </div>
         </div>
     </div>

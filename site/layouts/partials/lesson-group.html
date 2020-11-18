@@ -1,0 +1,42 @@
+<div class="m-app py-20">
+
+    {{ range .lessons }}
+    <div class="lg:flex lg:justify-between lg:items-stretch mb-20">
+
+        <!-- Polka Dots -->
+        <div class="relative flex-1 lg:max-w-md">
+            <div class="absolute heading-polka-dots w-24 h-24 mt-4 bg-repeat" style="background-image: url('/img/polka-dots.svg')">
+            </div>
+
+            <div class="lg:flex lg:flex-col lg:justify-between lg:h-full">
+
+                <h2 class="relative heading-2 font-extrabold text-gray-700">
+                    {{ .name }}
+                </h2>
+
+                <p class="py-8 text-gray-800 leading-relaxed tracking-wider">
+                    {{ .description | markdownify }}
+                </p>
+
+                <div class="text-center">
+                    <button class="btn btn--s border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white">
+                        Lees meer
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Lesson image -->
+        <div class="flex-1 lg:max-w-md mt-10 lg:mt-0">
+            <div class="h-64 sm:h-96 md:h-112 lg:h-full img-frame border-blue-500" style="background-image: url({{ .image }})"></div>
+        </div>
+
+    </div>
+
+    {{ end }}
+
+    {{ .teacher.name }}
+
+</div>
