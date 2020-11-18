@@ -26,6 +26,12 @@ module.exports = {
         112: "28rem",
       }
     },
+    screens: {
+      "xs": "480px",
+      "sm": "639px",
+      "md": "767px",
+      "lg": "1023px",
+    },
     colors: {
       white: "#ffffff",
       gray: {

@@ -23,6 +23,14 @@ button:active {
     }
 }
 
+.heading-3 {
+    @apply text-xl font-extrabold tracking-wider;
+
+    @screen md {
+        @apply text-2xl;
+    }
+}
+
 .btn {
     @apply px-8 py-4 font-bold rounded-md
 }
@@ -36,7 +44,11 @@ button:active {
 }
 
 .btn--red:hover {
-        @apply bg-red-600
+    @apply bg-red-600
+}
+
+.btn--red:focus {
+    @apply border-white;
 }
 
 .hero-bg-oval {
@@ -55,7 +67,8 @@ button:active {
 'lg': '1024px',
 'xl': '1280px', */
 .m-app {
-    @apply max-w-6xl mx-auto px-10 py-3;
+    @apply max-w-6xl mx-auto px-4 py-3;
+    @screen xs { @apply px-10 py-3; }
     @screen sm { @apply px-12 py-6; }
     @screen md { @apply px-12 py-4; }
 }
