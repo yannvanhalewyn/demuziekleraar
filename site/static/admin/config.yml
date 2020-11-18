@@ -116,12 +116,12 @@ collections: # A list of collections the CMS should be able to edit
               - { label: Prijs < 21, name: priceChildren, widget: string, hint: "Voorbeeld: 17,50 of 20,-" }
               - { label: Prijs > 21, name: priceAdults, widget: string, hint: "Voorbeeld: 17,50 of 20,-" }
               - { label: Prijs ondertitel, name: priceSubtitle, widget: string, hint: "Voorbeeld: / 45min" }
+              - { label: Kortingszin, name: discount, widget: markdown, minimal: true, required: false}
               - label: Kenmerken
                 name: features
                 widget: list
                 fields:
                   - { label: Kenmerk, name: name, widget: markdown, minimal: true }
-
 
       - file: "site/content/contact/_index.md"
         name: "contact"

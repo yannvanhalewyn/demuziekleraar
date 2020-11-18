@@ -58,6 +58,13 @@
                     </div>
 
                     {{ partial "signup_button" (dict "class" "shadow-md mt-16 bg-orange-500 hover:bg-orange-600") }}
+
+                    <div class="h-8 mt-8 text-blue-300 strong-white">
+                        {{ with $pricingModel.discount }}
+                        {{ . | markdownify }}
+                        {{ end }}
+                    </div>
+
                 </div>
 
                 <hr class="my-16 border-blue-300 border-t-2"/>
@@ -77,13 +84,9 @@
                     {{ end }}
 
                 </div>
-
             </div>
             {{ end }}
 
         </div>
-
     </div>
-
-
 </div>

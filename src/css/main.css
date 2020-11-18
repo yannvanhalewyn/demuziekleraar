@@ -91,7 +91,11 @@ button:active {
     @apply text-orange-500;
 }
 
-.hero-title strong {
+.strong-white strong {
+    @apply text-white;
+}
+
+.strong-blue-800 strong {
     @apply text-blue-800;
 }
 
