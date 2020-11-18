@@ -11,13 +11,15 @@ public_folder: "media" # Url prefix saved when uploading / choosing media
 logo_url: "/img/logo.svg"
 
 collections: # A list of collections the CMS should be able to edit
-  - name: "pages"
-    label: "Pages"
+  - name: pages
+    label: Content
     files:
-      - file: "site/content/_index.md"
-        name: "home"
-        label: "Home Page"
+
+      - file: site/content/_index.md
+        name: home
+        label: Home Page
         fields:
+
           - label: Titel
             name: title
             widget: markdown
@@ -39,6 +41,7 @@ collections: # A list of collections the CMS should be able to edit
               - label: Image 3
                 name: image3
                 widget: image
+
           - label: Groepslessen
             name: groupLessons
             widget: object
@@ -50,6 +53,7 @@ collections: # A list of collections the CMS should be able to edit
                 name: description
                 widget: markdown
                 minimal: true
+
           - label: LesBlokken
             name: lessonGroups
             widget: list
@@ -73,6 +77,7 @@ collections: # A list of collections the CMS should be able to edit
                     fields:
                       - {label: Icoon, name: icon, widget: image}
                       - {label: beschrijving, name: description, widget: markdown, minimal: true}
+
           - label: Getuigenissen
             name: testimonials
             widget: list
@@ -83,32 +88,7 @@ collections: # A list of collections the CMS should be able to edit
               - label: Author
                 name: author
                 widget: string
-          - label: Prijzen
-            name: pricing
-            widget: object
-            fields:
-              - label: Heading
-                name: heading
-                widget: string
-              - label: Description
-                name: description
-                widget: string
-              - label: Plans
-                name: plans
-                widget: list
-                fields:
-                  - label: Plan
-                    name: plan
-                    widget: string
-                  - label: Price
-                    name: price
-                    widget: string
-                  - label: Description
-                    name: description
-                    widget: string
-                  - label: Items
-                    name: items
-                    widget: list
+
           - label: SEO
             name: seo
             widget: object
@@ -122,6 +102,27 @@ collections: # A list of collections the CMS should be able to edit
                 name: image
                 hint: Deze afbeelding krijg je te zien als je een link deelt naar je website (op bijvoorbeeld Facebook of WhatsApp)
                 widget: image
+
+      - file: site/data/pricing.yml
+        name: pricing
+        label: Tarieven
+        fields:
+          - label: Paketten
+            name: pricing_models
+            widget: list
+            fields:
+              - { label: Naam, name: name, widget: string }
+              - { label: Locatie, name: location, widget: string }
+              - { label: Prijs < 21, name: priceChildren, widget: string, hint: "Voorbeeld: 17,50 of 20,-" }
+              - { label: Prijs > 21, name: priceAdults, widget: string, hint: "Voorbeeld: 17,50 of 20,-" }
+              - { label: Prijs ondertitel, name: priceSubtitle, widget: string, hint: "Voorbeeld: / 45min" }
+              - label: Kenmerken
+                name: features
+                widget: list
+                fields:
+                  - { label: Kenmerk, name: name, widget: markdown, minimal: true }
+
+
       - file: "site/content/contact/_index.md"
         name: "contact"
         label: "Contact Page"

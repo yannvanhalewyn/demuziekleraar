@@ -1,0 +1,76 @@
+<div class="bg-blue-700 text-white">
+    <div class="m-container py-12">
+
+        <!-- Title -->
+        <div class="relative">
+            <!-- Polka Dots -->
+            <div class="absolute heading-polka-dots w-24 h-24 mt-4 bg-repeat" style="background-image: url('/img/polka-dots-blue.svg')">
+            </div>
+
+            <h2 class="relative heading-2 font-extrabold text-white pl-4 border-l-8 border-red-600">
+                Tarieven
+            </h2>
+        </div>
+
+        <!-- Pricing table -->
+        <div class="mt-12 lg:flex lg:bg-blue-600 lg:rounded-xl lg:overflow-hidden lg:shadow-xl">
+
+            <!-- Pricing Models -->
+            {{ $modelsCount := len .pricingModels }}
+            {{ range $idx, $pricingModel := .pricingModels }}
+            <div class="lg:flex-1 p-6 xs:p-10 md:p-16 rounded-xl shadow-xl bg-blue-600 lg:rounded-none lg:shadow-none lg:bg-none {{ if (lt (add $idx 1) $modelsCount) }} mb-12 lg:mb-0 border-r-2 border-blue-300 {{ end }}">
+
+                <!-- Price and CTA -->
+                <div class="text-center">
+
+                    <div class="text-center">
+                        <h2 class="inline-block mx-auto px-5 py-1 bg-blue-300 rounded-full heading-3 text-blue-700 font-bold uppercase">
+                            {{ $pricingModel.name }}
+                        </h2>
+                    </div>
+
+                    <div class="mt-2 xs:ml-4 text-blue-300 text-xs">
+                        {{ $pricingModel.location }}
+                    </div>
+
+                    <!-- Price -->
+                    <div class="mt-8">
+                        <div>
+                            <span class="text-blue-300 text-2xl relative" style="bottom: 1.2rem; right: .1rem">
+                                €
+                            </span>
+                            <span class="font-bold text-5xl">{{ $pricingModel.priceChildren }}</span>
+                        </div>
+                        <span class="text-blue-300">{{ $pricingModel.priceSubtitle }}</span>
+                    </div>
+
+                    {{ partial "signup_button" (dict "class" "shadow-md mt-16 bg-orange-500 hover:bg-orange-600") }}
+                </div>
+
+                <hr class="my-16 border-blue-300 border-t-2"/>
+
+                <!-- Features -->
+                <div class="text-blue-300 sm:text-base">
+
+                    {{ range $feature := $pricingModel.features }}
+                    <div class="flex items-center py-3">
+                        <div class="w-8 h-8 sm:w-6 sm:h-6">
+                            {{ partial "icon" (dict "svg" "check-circle" "class" "w-8 h-8 sm:w-6 sm:h-6 text-blue-300") }}
+                        </div>
+                        <p class="ml-4 strong-orange-500">
+                            {{ $feature.name | markdownify }}
+                        </p>
+                    </div>
+                    {{ end }}
+
+                </div>
+
+            </div>
+            {{ end }}
+
+        </div>
+
+    </div>
+
+
+</div>
