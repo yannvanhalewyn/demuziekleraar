@@ -2,8 +2,8 @@
 
 {{ partial "hero" .Params }}
 
-{{ range $1, $lessonGroep := .Params.lessonGroups }}
-  {{ partial "lesson-group" $lessonGroep }}
+{{ range $idx, $lessonGroep := .Params.lessonGroups }}
+{{ partial "lesson-group" (dict "lessonGroup" $lessonGroep "flipTeacher" (not (modBool $idx 2))) }}
 {{ end }}
 
 <pre class="hidden px-12 py-12 bg-gray-900 text-white w-screen overflow-scroll">
