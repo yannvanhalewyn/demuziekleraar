@@ -18,7 +18,7 @@
             <!-- Pricing Models -->
             {{ $modelsCount := len .pricingModels }}
             {{ range $idx, $pricingModel := .pricingModels }}
-            <div class="lg:flex-1 p-6 xs:p-10 md:p-16 rounded-xl shadow-xl bg-blue-600 lg:rounded-none lg:shadow-none lg:bg-none {{ if (lt (add $idx 1) $modelsCount) }} mb-12 lg:mb-0 border-r-2 border-blue-300 {{ end }}">
+            <div class="lg:flex-1 p-6 xs:p-10 md:p-16 rounded-xl shadow-xl bg-blue-600 lg:rounded-none lg:shadow-none lg:bg-none {{ if (lt (add $idx 1) $modelsCount) }} mb-12 lg:mb-0 border-r-2 lg:border-blue-300 {{ end }}">
 
                 <!-- Price and CTA -->
                 <div class="text-center">
@@ -29,8 +29,21 @@
                         </h2>
                     </div>
 
-                    <div class="mt-2 xs:ml-4 text-blue-300 text-xs">
-                        {{ $pricingModel.location }}
+
+                    <div class="flex justify-around">
+                        <div class="flex items-center mt-2 text-blue-300 text-xs">
+                            {{ $class := "inline w-4 h-4 text-blue-300" }}
+
+                            {{ if (eq $pricingModel.location "Thuis")}}
+                            {{ partial "icon" (dict "svg" "home" "class" $class) }}
+                            {{ else }}
+                            {{ partial "icon" (dict "svg" "building" "class" $class) }}
+                            {{ end }}
+
+                            <span class="ml-1">
+                                {{ $pricingModel.location }}
+                            </span>
+                        </div>
                     </div>
 
                     <!-- Price -->

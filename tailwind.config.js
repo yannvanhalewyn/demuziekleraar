@@ -86,7 +86,7 @@ module.exports = {
   variants: {
     animation: ["hover", "group-hover"],
     rotate: ["hover", "group-hover"],
-    borderWidth: ["hover"]
+    borderWidth: ["hover", "responsive"]
   },
   plugins: [],
 };

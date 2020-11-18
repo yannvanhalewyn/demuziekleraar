@@ -79,11 +79,6 @@ button:active {
     }
 }
 
-/* Reminder:
-'sm': '640px',
-'md': '768px',
-'lg': '1024px',
-'xl': '1280px', */
 .m-container {
     max-width: 80rem;
     @apply mx-auto px-6 py-3;
