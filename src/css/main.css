@@ -15,6 +15,14 @@ button:active {
 /********************************************************************************
   Components */
 
+.heading-2 {
+    @apply text-2xl font-extrabold tracking-wider;
+
+    @screen md {
+        @apply text-3xl;
+    }
+}
+
 .btn {
     @apply px-8 py-4 font-bold rounded-md
 }
@@ -41,9 +49,14 @@ button:active {
     }
 }
 
+/* Reminder:
+'sm': '640px',
+'md': '768px',
+'lg': '1024px',
+'xl': '1280px', */
 .m-app {
-    @apply max-w-6xl mx-auto p-3;
-    @screen sm { @apply p-6; }
+    @apply max-w-6xl mx-auto px-10 py-3;
+    @screen sm { @apply px-12 py-6; }
     @screen md { @apply px-12 py-4; }
 }
 
@@ -61,6 +74,11 @@ button:active {
     transform: rotate(9deg);
     bottom: -4.5rem;
     right: 2rem;
+}
+
+.heading-polka-dots {
+    top: -3rem;
+    left: -2rem;
 }
 
 .img-frame {

@@ -50,6 +50,29 @@ collections: # A list of collections the CMS should be able to edit
                 name: description
                 widget: markdown
                 minimal: true
+          - label: LesBlokken
+            name: lessonGroups
+            widget: list
+            fields:
+              - label: Lessen
+                name: lessons
+                widget: list
+                fields:
+                  - {label: Vaardigheid, name: name, widget: string}
+                  - {label: Beschrijving, name: description, widget: markdown, minimal: true}
+                  - {label: Afbeelding, name: image, widget: image}
+              - label: Docent
+                name: teacher
+                widget: object
+                fields:
+                  - {label: Naam, name: name, widget: string}
+                  - {label: Afbeelding, name: image, widget: image}
+                  - label: prestaties
+                    name: achievements
+                    widget: list
+                    fields:
+                      - {label: Icoon, name: icon, widget: image}
+                      - {label: beschrijving, name: description, widget: markdown, minimal: true}
           - label: Getuigenissen
             name: testimonials
             widget: list
