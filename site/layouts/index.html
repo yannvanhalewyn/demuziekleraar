@@ -2,27 +2,10 @@
 
 {{ partial "svg-injection" . }}
 
-{{ partial "hero" .Params }}
+{{ partial "hero" .Site.Data.banner }}
 
-<div id="lessons">
-{{ range $idx, $lessonGroep := .Params.lessonGroups }}
-{{ partial "lesson-group" (dict "lessonGroup" $lessonGroep "flipTeacher" (not (modBool $idx 2))) }}
-{{ end }}
-</div>
+{{ partial "lessons" .Site.Data.lessons }}
 
-{{ partial "pricing" (dict "pricingModels" .Site.Data.pricing.pricing_models)}}
-
-<pre class="hidden px-12 py-12 bg-gray-900 text-white w-screen overflow-scroll">
-
-// .Params
-{{ .Params | jsonify (dict "prefix" "  " "indent" "  ") }}
-    <br/>
-// .AllPages[0]
-{{ (index $.Site.AllPages 0).Params | jsonify (dict "prefix" "  " "indent" "  ") }}
-    <br/>
-// .Home
-{{ $.Site.Home.Params | jsonify (dict "prefix" "  " "indent" "  ") }}
-
-</pre>
+{{ partial "pricing" .Site.Data.pricing }}
 
 {{ end }}

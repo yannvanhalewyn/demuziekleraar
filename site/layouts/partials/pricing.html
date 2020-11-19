@@ -43,6 +43,9 @@
                     <!-- Price and CTA -->
                     <div class="text-center" >
 
+
+                        <!-- Illustration hardcoded, improve if new pricing
+                             models require so -->
                         {{ $illustration := cond (eq $pricingModel.name "Groepsles") "/img/community.svg" "/img/professor.svg"  }}
 
                         <div class="w-64 h-32 md:w-72 md:h-40 mx-auto bg-no-repeat bg-contain bg-center" style="background-image: url('{{ $illustration }}')">
@@ -58,6 +61,8 @@
                             <span class="flex items-center mt-2 text-blue-300 text-xs">
                                 {{ $class := "inline w-4 h-4 text-blue-300" }}
 
+                                <!-- Icons hardcoded, improve if new pricing
+                                    models require so -->
                                 {{ if (eq $pricingModel.location "Thuis")}}
                                 {{ partial "icon" (dict "svg" "home" "class" $class) }}
                                 {{ else }}

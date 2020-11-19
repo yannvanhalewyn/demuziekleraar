@@ -1,5 +1,4 @@
-test: test
-pricing_models:
+pricingModels:
   - name: Groepsles
     priceChildren: 17,50
     priceAdults: 22,50

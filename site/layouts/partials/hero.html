@@ -34,10 +34,9 @@
         </div>
     </div>
 
-    <!-- Groepslessen -->
+    <!-- Promo -->
     <!-- The title and icon are a ping pong breakpoint, it starts off left, on MD it
          goes right and up, and on alg back left. -->
-
     <div class="bg-blue-700 md:-mt-24 lg:mt-0 py-20 sm:py-32 md:pt-0 lg:pb-24">
         <div class="flex flex-col lg:flex-row-reverse items-center lg:items-stretch m-container">
 
@@ -54,10 +53,10 @@
                 <!-- Body -->
                 <div class="relative md:max-w-md lg:ml-auto">
                     <h3 class="heading-2 md:text-right lg:text-left text-white">
-                        Groepslessen
+                        {{ .promo.title }}
                     </h3>
                     <p class="mt-8 text-blue-100 leading-relaxed tracking-wide">
-                        {{ .groupLessons.description | markdownify  }}
+                        {{ .promo.description | markdownify  }}
                     </p>
                     <div class="mt-12 text-center">
                         <button class="btn btn--s bg-white text-blue-700 hover:bg-blue-700 border-white border-2 hover:text-white">
@@ -69,7 +68,7 @@
 
             <!-- Image -->
             <div class="flex-1 w-full mt-12 lg:mt-0 md:max-w-md">
-                <div class="h-72 sm:h-112 md:h-72 lg:h-full mx-auto lg:mx-0 img-frame border-white" style="background-image: url({{ .groupLessons.image }})"></div>
+                <div class="h-72 sm:h-112 md:h-72 lg:h-full mx-auto lg:mx-0 img-frame border-white" style="background-image: url({{ .promo.image }})"></div>
             </div>
         </div>
     </div>

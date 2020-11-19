@@ -15,11 +15,10 @@ collections: # A list of collections the CMS should be able to edit
     label: Content
     files:
 
-      - file: site/content/_index.md
+      - label: Banner
         name: home
-        label: Home Page
+        file: site/data/banner.yml
         fields:
-
           - label: Titel
             name: title
             widget: markdown
@@ -41,74 +40,48 @@ collections: # A list of collections the CMS should be able to edit
               - label: Image 3
                 name: image3
                 widget: image
-
-          - label: Groepslessen
-            name: groupLessons
+          - label: Promo
+            name: promo
             widget: object
             fields:
-              - label: Afbeelding
-                name: image
-                widget: image
-              - label: Bescrijving
-                name: description
-                widget: markdown
-                minimal: true
+              - {label: Titel, name: title, widget: string}
+              - {label: Afbeelding, name: image, widget: image}
+              - {label: Bescrijving, name: description, widget: markdown, minimal: true}
 
-          - label: LesBlokken
-            name: lessonGroups
-            widget: list
-            fields:
-              - label: Lessen
-                name: lessons
-                widget: list
-                fields:
-                  - {label: Vaardigheid, name: name, widget: string}
-                  - {label: Beschrijving, name: description, widget: markdown, minimal: true}
-                  - {label: Afbeelding, name: image, widget: image}
-              - label: Docent
-                name: teacher
-                widget: object
-                fields:
-                  - {label: Naam, name: name, widget: string}
-                  - {label: Afbeelding, name: image, widget: image}
-                  - label: prestaties
-                    name: achievements
-                    widget: list
-                    fields:
-                      - {label: Icoon, name: icon, widget: image}
-                      - {label: beschrijving, name: description, widget: markdown, minimal: true}
+      - label: Lessen
+        name: lessons
+        file: site/data/lessons.yml
+        fields:
+        - label: LesBlokken
+          name: lessonGroups
+          widget: list
+          fields:
+            - label: Lessen
+              name: lessons
+              widget: list
+              fields:
+                - {label: Vaardigheid, name: name, widget: string}
+                - {label: Beschrijving, name: description, widget: markdown, minimal: true}
+                - {label: Afbeelding, name: image, widget: image}
+            - label: Docent
+              name: teacher
+              widget: object
+              fields:
+                - {label: Naam, name: name, widget: string}
+                - {label: Afbeelding, name: image, widget: image}
+                - label: prestaties
+                  name: achievements
+                  widget: list
+                  fields:
+                    - {label: Icoon, name: icon, widget: image}
+                    - {label: beschrijving, name: description, widget: markdown, minimal: true}
 
-          - label: Getuigenissen
-            name: testimonials
-            widget: list
-            fields:
-              - label: Quote
-                name: quote
-                widget: string
-              - label: Author
-                name: author
-                widget: string
-
-          - label: SEO
-            name: seo
-            widget: object
-            fields:
-              - label: Beschrijving
-                name: description
-                widget: text
-                hint: Deze beschrijving wordt gelezen door google en is te zien in het google zoekresultaat.
-                minimal: true
-              - label: Afbeelding
-                name: image
-                hint: Deze afbeelding krijg je te zien als je een link deelt naar je website (op bijvoorbeeld Facebook of WhatsApp)
-                widget: image
-
-      - file: site/data/pricing.yml
+      - label: Tarieven
         name: pricing
-        label: Tarieven
+        file: site/data/pricing.yml
         fields:
           - label: Paketten
-            name: pricing_models
+            name: pricingModels
             widget: list
             fields:
               - { label: Naam, name: name, widget: string }
@@ -123,20 +96,39 @@ collections: # A list of collections the CMS should be able to edit
                 fields:
                   - { label: Kenmerk, name: name, widget: markdown, minimal: true }
 
-      - file: "site/content/contact/_index.md"
-        name: "contact"
-        label: "Contact Page"
+      - label: Getuigenissen
+        name: testimonials
+        file: site/data/testimonials.yml
         fields:
-          - {label: Title, name: title, widget: string}
-          - {label: Logo, name: logo, widget: image}
-          - {label: Body, name: body, widget: markdown}
-          - label: Contact Entries
-            name: contact_entries
+          - label: Getuigenissen
+            name: testimonials
             widget: list
             fields:
-              - label: Heading
-                name: heading
+              - label: Quote
+                name: quote
                 widget: string
-              - label: Text
-                name: text
-                widget: text
+              - label: Author
+                name: author
+                widget: string
+
+      - label: Socials
+        name: socials
+        file: site/data/socials.yml
+        fields:
+          - {label: Youtube URL, name: youtubeURL, widget: string}
+          - {label: Instagram URL, name: instagramURL, widget: string, required: false}
+          - {label: Facebook URL, name: facebookURL, widget: string, required: false}
+
+      - label: SEO
+        name: seo
+        file: site/data/seo.yml
+        fields:
+          - label: Beschrijving
+            name: description
+            widget: text
+            hint: Deze beschrijving wordt gelezen door google en is te zien in het google zoekresultaat.
+            minimal: true
+          - label: Afbeelding
+            name: image
+            hint: Deze afbeelding krijg je te zien als je een link deelt naar je website (op bijvoorbeeld Facebook of WhatsApp)
+            widget: image
