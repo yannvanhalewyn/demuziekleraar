@@ -4,9 +4,11 @@
 
 {{ partial "hero" .Params }}
 
+<div id="lessons">
 {{ range $idx, $lessonGroep := .Params.lessonGroups }}
 {{ partial "lesson-group" (dict "lessonGroup" $lessonGroep "flipTeacher" (not (modBool $idx 2))) }}
 {{ end }}
+</div>
 
 {{ partial "pricing" (dict "pricingModels" .Site.Data.pricing.pricing_models)}}
 
