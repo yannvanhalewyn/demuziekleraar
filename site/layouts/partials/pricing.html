@@ -12,84 +12,109 @@
             </h2>
         </div>
 
-        <!-- Pricing table -->
-        <div class="mt-12 lg:flex lg:bg-blue-600 lg:rounded-xl lg:overflow-hidden lg:shadow-xl">
+        <div class="mt-16">
 
-            <!-- Pricing Models -->
-            {{ $modelsCount := len .pricingModels }}
-            {{ range $idx, $pricingModel := .pricingModels }}
-            <div class="lg:flex-1 p-6 xs:p-10 md:p-16 rounded-xl shadow-xl bg-blue-600 lg:rounded-none lg:shadow-none lg:bg-none {{ if (lt (add $idx 1) $modelsCount) }} mb-12 lg:mb-0 lg:border-r-2 lg:border-blue-300 {{ end }}">
+            <!-- Pricing toggle -->
+            <div class="flex items-center text-blue-300 font-semibold">
 
-                <!-- Price and CTA -->
-                <div class="text-center" >
+                <label for="pricing-toggle" id="js-pricing-label-children" class="pricing-toggle__label pricing-toggle__label--active">
+                    Tot 21 jaar
+                </label>
 
-                    {{ $illustration := cond (eq $pricingModel.name "Groepsles") "/img/community.svg" "/img/professor.svg"  }}
-
-                    <div class="w-64 h-32 md:w-72 md:h-40 mx-auto bg-no-repeat bg-contain bg-center" style="background-image: url('{{ $illustration }}')">
-                    </div>
-
-                    <div class="-mt-12">
-                    <h2 class="inline-block px-5 py-1 bg-blue-300 rounded-full heading-3 text-blue-700 font-bold uppercase">
-                        {{ $pricingModel.name }}
-                    </h2>
-                    </div>
-
-                    <div class="flex justify-around">
-                        <span class="flex items-center mt-2 text-blue-300 text-xs">
-                            {{ $class := "inline w-4 h-4 text-blue-300" }}
-
-                            {{ if (eq $pricingModel.location "Thuis")}}
-                            {{ partial "icon" (dict "svg" "home" "class" $class) }}
-                            {{ else }}
-                            {{ partial "icon" (dict "svg" "building" "class" $class) }}
-                            {{ end }}
-
-                            <span class="ml-1">
-                                {{ $pricingModel.location }}
-                            </span>
-                        </span>
-                    </div>
-
-                    <!-- Price -->
-                    <div class="mt-8">
-                        <div>
-                            <span class="text-blue-300 text-2xl relative" style="bottom: 1.2rem; right: .1rem">
-                                €
-                            </span>
-                            <span class="font-bold text-5xl">{{ $pricingModel.priceChildren }}</span>
-                        </div>
-                        <span class="text-blue-300">{{ $pricingModel.priceSubtitle }}</span>
-                    </div>
-
-                    {{ partial "signup_button" (dict "class" "shadow-md mt-12 bg-orange-500 hover:bg-orange-600") }}
-
-                    <div class="h-8 mt-4 text-blue-300 strong-white">
-                        {{ with $pricingModel.discount }}
-                        {{ . | markdownify }}
-                        {{ end }}
-                    </div>
-
+                <!-- TODO shadow inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.2) -->
+                <div class="pricing-toggle mx-4">
+                    <input class="pricing-toggle__check" type="checkbox" id="js-pricing-toggle">
+                    <b class="pricing-toggle__switch"></b>
                 </div>
 
-                <hr class="my-8 md:my-12 border-blue-300 border-t-2"/>
-
-                <!-- Features -->
-                <div class="text-blue-300 sm:text-base">
-
-                    {{ range $feature := $pricingModel.features }}
-                    <div class="flex items-center py-3">
-                        <div class="w-8 h-8 sm:w-6 sm:h-6">
-                            {{ partial "icon" (dict "svg" "check-circle" "class" "w-8 h-8 sm:w-6 sm:h-6 text-blue-300") }}
-                        </div>
-                        <p class="ml-4 strong-orange-500">
-                            {{ $feature.name | markdownify }}
-                        </p>
-                    </div>
-                    {{ end }}
-
-                </div>
+                <label for="pricing-toggle" id="js-pricing-label-adults" class="pricing-toggle__label">
+                    Vanaf 21 jaar
+                </label>
             </div>
-            {{ end }}
+
+            <!-- Table -->
+            <div class="mt-6 lg:flex lg:bg-blue-600 lg:rounded-xl lg:overflow-hidden lg:shadow-xl">
+
+                <!-- Pricing Models -->
+                {{ $modelsCount := len .pricingModels }}
+                {{ range $idx, $pricingModel := .pricingModels }}
+                <div class="lg:flex-1 p-6 xs:p-10 md:p-16 rounded-xl shadow-xl bg-blue-600 lg:rounded-none lg:shadow-none lg:bg-none {{ if (lt (add $idx 1) $modelsCount) }} mb-12 lg:mb-0 lg:border-r-2 lg:border-blue-300 {{ end }}">
+
+                    <!-- Price and CTA -->
+                    <div class="text-center" >
+
+                        {{ $illustration := cond (eq $pricingModel.name "Groepsles") "/img/community.svg" "/img/professor.svg"  }}
+
+                        <div class="w-64 h-32 md:w-72 md:h-40 mx-auto bg-no-repeat bg-contain bg-center" style="background-image: url('{{ $illustration }}')">
+                        </div>
+
+                        <div class="-mt-12">
+                            <h2 class="inline-block px-5 py-1 bg-blue-300 rounded-full heading-3 text-blue-700 font-bold uppercase">
+                                {{ $pricingModel.name }}
+                            </h2>
+                        </div>
+
+                        <div class="flex justify-around">
+                            <span class="flex items-center mt-2 text-blue-300 text-xs">
+                                {{ $class := "inline w-4 h-4 text-blue-300" }}
+
+                                {{ if (eq $pricingModel.location "Thuis")}}
+                                {{ partial "icon" (dict "svg" "home" "class" $class) }}
+                                {{ else }}
+                                {{ partial "icon" (dict "svg" "building" "class" $class) }}
+                                {{ end }}
+
+                                <span class="ml-1">
+                                    {{ $pricingModel.location }}
+                                </span>
+                            </span>
+                        </div>
+
+                        <!-- Price -->
+                        <div class="mt-8">
+                            <div>
+                                <span class="text-blue-300 text-2xl relative" style="bottom: 1.2rem; right: .1rem">
+                                    €
+                                </span>
+                                <span class="font-bold text-5xl">
+                                    <span class="js-price-children">{{ $pricingModel.priceChildren }}</span>
+                                    <span class="js-price-adults hidden">{{ $pricingModel.priceAdults }}</span>
+                                </span>
+                            </div>
+                            <span class="text-blue-300">{{ $pricingModel.priceSubtitle }}</span>
+                        </div>
+
+                        {{ partial "signup_button" (dict "class" "shadow-md mt-12 bg-orange-500 hover:bg-orange-600") }}
+
+                        <div class="h-8 mt-4 text-blue-300 strong-white">
+                            {{ with $pricingModel.discount }}
+                            {{ . | markdownify }}
+                            {{ end }}
+                        </div>
+
+                    </div>
+
+                    <hr class="my-8 md:my-12 border-blue-300 border-t-2"/>
+
+                    <!-- Features -->
+                    <div class="text-blue-300 sm:text-base">
+
+                        {{ range $feature := $pricingModel.features }}
+                        <div class="flex items-center py-3">
+                            <div class="w-8 h-8 sm:w-6 sm:h-6">
+                                {{ partial "icon" (dict "svg" "check-circle" "class" "w-8 h-8 sm:w-6 sm:h-6 text-blue-300") }}
+                            </div>
+                            <p class="ml-4 strong-orange-500">
+                                {{ $feature.name | markdownify }}
+                            </p>
+                        </div>
+                        {{ end }}
+
+                    </div>
+                </div>
+                {{ end }}
+
+            </div>
 
         </div>
     </div>
