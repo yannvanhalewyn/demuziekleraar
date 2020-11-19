@@ -115,6 +115,41 @@ button:active {
     @apply bg-no-repeat bg-cover bg-center border-6 rounded-4xl
 }
 
+.pricing-toggle {
+    @apply relative w-16 h-8 rounded-full bg-blue-600 shadow-inner;
+}
+
+.pricing-toggle__check {
+    @apply absolute block z-20 top-0 left-0 w-full h-full cursor-pointer opacity-0;
+}
+
+.pricing-toggle__switch {
+    @apply absolute z-10 bg-white rounded-full shadow;
+    left: .25rem;
+    top: .25rem;
+    bottom: .25rem;
+    right: 56.25%;
+    z-index: 1;
+    transition: 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    transition-property: left, right;
+    transition-delay: 0s, .08s;
+}
+
+.pricing-toggle__check:checked ~ .pricing-toggle__switch {
+    right: .25rem;
+    left: 56.25%;
+    transition-delay: .08s, 0s;
+}
+
+.pricing-toggle__label {
+    @apply text-blue-300 font-semibold;
+    transition: color .25s;
+}
+
+.pricing-toggle__label--active {
+    @apply text-white;
+}
+
 
 /********************************************************************************
   Custom utilities */
