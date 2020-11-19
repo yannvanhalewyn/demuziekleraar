@@ -113,6 +113,8 @@ collections: # A list of collections the CMS should be able to edit
 
       - label: Socials
         name: socials
+        editor:
+          preview: false
         file: site/data/socials.yml
         fields:
           - {label: Youtube URL, name: youtubeURL, widget: string}
@@ -121,6 +123,8 @@ collections: # A list of collections the CMS should be able to edit
 
       - label: SEO
         name: seo
+        editor:
+          preview: false
         file: site/data/seo.yml
         fields:
           - label: Beschrijving
