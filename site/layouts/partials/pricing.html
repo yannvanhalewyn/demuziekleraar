@@ -1,5 +1,5 @@
-<div class="bg-blue-700 text-white">
-    <div class="m-container py-12">
+<div id="pricing" class="bg-blue-700 text-white">
+    <div class="m-container py-24">
 
         <!-- Title -->
         <div class="relative">
@@ -18,7 +18,7 @@
             <!-- Pricing Models -->
             {{ $modelsCount := len .pricingModels }}
             {{ range $idx, $pricingModel := .pricingModels }}
-            <div class="lg:flex-1 p-6 xs:p-10 md:p-16 rounded-xl shadow-xl bg-blue-600 lg:rounded-none lg:shadow-none lg:bg-none {{ if (lt (add $idx 1) $modelsCount) }} mb-12 lg:mb-0 border-r-2 lg:border-blue-300 {{ end }}">
+            <div class="lg:flex-1 p-6 xs:p-10 md:p-16 rounded-xl shadow-xl bg-blue-600 lg:rounded-none lg:shadow-none lg:bg-none {{ if (lt (add $idx 1) $modelsCount) }} mb-12 lg:mb-0 lg:border-r-2 lg:border-blue-300 {{ end }}">
 
                 <!-- Price and CTA -->
                 <div class="text-center">
@@ -67,7 +67,7 @@
 
                 </div>
 
-                <hr class="my-16 border-blue-300 border-t-2"/>
+                <hr class="my-8 md:my-12 border-blue-300 border-t-2"/>
 
                 <!-- Features -->
                 <div class="text-blue-300 sm:text-base">

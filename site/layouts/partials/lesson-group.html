@@ -54,12 +54,12 @@
                 {{ .lessonGroup.teacher.name }}
             </h3>
 
-            <hr class="my-8 lg:my-4 border-t-2">
+            <hr class="my-8 lg:my-12 border-t-2">
 
             <!-- Achievements -->
-            <div class="lg:py-12">
+            <div class="">
                 {{ range $achievement := .lessonGroup.teacher.achievements }}
-                <div class="flex items-center py-1">
+                <div class="flex items-center py-2">
                     <div class="inline-block p-2 rounded-full bg-blue-500">
                         <div class="w-4 h-4 bg-contain bg-center" style="background-image: url({{ $achievement.icon }})"></div>
                     </div>
