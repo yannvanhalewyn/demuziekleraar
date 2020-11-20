@@ -10,6 +10,9 @@ module.exports = {
   },
   theme: {
     extend: {
+      lineHeight: {
+        '11': '2.75rem',
+      },
       rotate: {
         360: "360deg"
       },
