@@ -2,6 +2,7 @@ import React from "react";
 import { readData } from "../content";
 import Header from "../components/header";
 import Banner from "../components/banner";
+import Lessons from "../components/lessons";
 
 export async function getStaticProps() {
   return {
@@ -25,6 +26,7 @@ export default function Home(props) {
     <React.Fragment>
       <Header/>
       <Banner {...props.banner}/>
+      <Lessons {...props.lessons}/>
     </React.Fragment>
   )
 }
