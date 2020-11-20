@@ -5,7 +5,7 @@ backend:
 # navigate to /admin/# instead of /admin# to see admin panel
 local_backend: true
 
-media_folder: "site/static/media" # Folder where user uploaded files should go
+media_folder: "public/media" # Folder where user uploaded files should go
 public_folder: "media" # Url prefix saved when uploading / choosing media
 
 logo_url: "/img/logo.svg"
@@ -17,7 +17,7 @@ collections: # A list of collections the CMS should be able to edit
 
       - label: Banner
         name: home
-        file: site/data/banner.yml
+        file: data/banner.yml
         fields:
           - label: Titel
             name: title
@@ -50,7 +50,7 @@ collections: # A list of collections the CMS should be able to edit
 
       - label: Lessen
         name: lessons
-        file: site/data/lessons.yml
+        file: data/lessons.yml
         fields:
         - label: LesBlokken
           name: lessonGroups
@@ -78,7 +78,7 @@ collections: # A list of collections the CMS should be able to edit
 
       - label: Tarieven
         name: pricing
-        file: site/data/pricing.yml
+        file: data/pricing.yml
         fields:
           - label: Paketten
             name: pricingModels
@@ -98,7 +98,7 @@ collections: # A list of collections the CMS should be able to edit
 
       - label: Getuigenissen
         name: testimonials
-        file: site/data/testimonials.yml
+        file: data/testimonials.yml
         fields:
           - label: Getuigenissen
             name: testimonials
@@ -115,7 +115,7 @@ collections: # A list of collections the CMS should be able to edit
         name: socials
         editor:
           preview: false
-        file: site/data/socials.yml
+        file: data/socials.yml
         fields:
           - {label: Youtube URL, name: youtubeURL, widget: string}
           - {label: Instagram URL, name: instagramURL, widget: string, required: false}
@@ -125,7 +125,7 @@ collections: # A list of collections the CMS should be able to edit
         name: seo
         editor:
           preview: false
-        file: site/data/seo.yml
+        file: data/seo.yml
         fields:
           - label: Beschrijving
             name: description

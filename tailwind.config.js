@@ -5,7 +5,7 @@ module.exports = {
   },
   purge: {
     content: [
-      "site/layouts/**/*.html"
+      "src/**/*.js"
     ]
   },
   theme: {
