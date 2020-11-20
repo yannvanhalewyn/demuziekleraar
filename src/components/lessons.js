@@ -19,12 +19,12 @@ const LessonPreview = (lesson, { i }) => {
             {lesson.name}
           </h2>
 
-          <p
+          <div
             className="py-8 text-gray-800 leading-relaxed tracking-wider"
             dangerouslySetInnerHTML={{
               __html: markdownToHtml(lesson.description),
             }}
-          ></p>
+          ></div>
 
           <div className="text-center">
             <button className="btn btn--s border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white">
@@ -49,23 +49,23 @@ const Teacher = ({ teacher, i }) => {
 
   return (
     <div
-      class={`lg:flex lg:justify-between lg:items-stretch ${
+      className={`lg:flex lg:justify-between lg:items-stretch ${
         flip ? "lg:flex-row-reverse" : ""
       } mt-4 lg:mt-8 rounded-xl overflow-hidden shadow-xl bg-gray-100`}
     >
-      <div class="lg:flex-grow lg:w-40 py-8 px-4 xs:px-8 lg:p-12">
-        <h2 class="heading-3 font-black text-gray-800">ONTMOET JE DOCENT</h2>
-        <h3 class="text-gray-600 tracking-wider">{teacher.name}</h3>
+      <div className="lg:flex-grow lg:w-40 py-8 px-4 xs:px-8 lg:p-12">
+        <h2 className="heading-3 font-black text-gray-800">ONTMOET JE DOCENT</h2>
+        <h3 className="text-gray-600 tracking-wider">{teacher.name}</h3>
 
-        <hr class="my-8 lg:my-12 border-t-2" />
+        <hr className="my-8 lg:my-12 border-t-2" />
 
-        <div class="">
+        <div className="">
           {teacher.achievements.map((achievement) => {
             return (
-              <div class="flex items-center py-2">
-                <div class="inline-block p-2 rounded-full bg-blue-500">
+              <div key={achievement.description} className="flex items-center py-2">
+                <div className="inline-block p-2 rounded-full bg-blue-500">
                   <div
-                    class="w-4 h-4 bg-contain bg-center"
+                    className="w-4 h-4 bg-contain bg-center"
                     style={{
                       backgroundImage: `url('${achievement.icon}')`,
                     }}
@@ -73,7 +73,7 @@ const Teacher = ({ teacher, i }) => {
                 </div>
 
                 <span
-                  class="ml-4 text-sm md:text-base text-gray-800"
+                  className="ml-4 text-sm md:text-base text-gray-800"
                   dangerouslySetInnerHTML={{
                     __html: markdownToHtml(achievement.description),
                   }}
@@ -84,9 +84,9 @@ const Teacher = ({ teacher, i }) => {
         </div>
       </div>
 
-      <div class="lg:flex-1">
+      <div className="lg:flex-1">
         <div
-          class="bg-center bg-cover h-96 xs:h-112 lg:h-full"
+          className="bg-center bg-cover h-96 xs:h-112 lg:h-full"
           style={{
             backgroundImage: `url('${teacher.image}')`,
           }}
