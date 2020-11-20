@@ -26,7 +26,10 @@
   <meta name="theme-color" content="#ffffff">
 
   <!-- Open Graph and SEO -->
-  <meta name="description" content="{{ .Site.Home.Params.seo.description }}">
+  <!-- TODO meta keywords -->
+  <!-- TODO have the site title also be using words in the description instead of
+       adding the title here risking that to be the preview. -->
+  <meta name="description" content="{{ $.Site.Title }} | {{ .Site.Home.Params.seo.description }}">
   <meta property="og:type" content="business.business">
   <meta property="og:title" content="{{ $.Site.Title }} | {{ $description }}">
   <meta property="og:url" content="/">
