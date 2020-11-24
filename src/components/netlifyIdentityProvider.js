@@ -7,6 +7,7 @@ const NetlifyIdentityModal = () => {
   // Should use useLayoutEffect, but it prins annoying unsuppressable warnings
   // for SSR. Works fine as effect ¯\_(ツ)_/¯
   useEffect(() => {
+    console.log("Open netlify modal")
     netlifyIdentity.open();
 
     return () => {
@@ -27,12 +28,16 @@ export const NetlifyIdentityProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    console.log("INIT netlify identity")
     netlifyIdentity.init();
     netlifyIdentity.on("init", () => console.log("init"));
     netlifyIdentity.on("login", () => console.log("LOGIN"));
     netlifyIdentity.on("logout", setCurrentUser);
+    window.netlifyIdentity = netlifyIdentity;
 
     const user = netlifyIdentity.currentUser();
+
+    console.log("INITIAL USER", user)
     if (user) {
       setAndRefreshJWT(netlifyIdentity.currentUser());
     } else {
