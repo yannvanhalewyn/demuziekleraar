@@ -4,27 +4,27 @@
   "description": "De Muziekleraar is a website for a music school in the Netherlands",
   "repository": "yannvanhalewyn/demuziekleraar",
   "scripts": {
-    "dev": "run-p dev:**",
-    "dev:next": "next dev",
-    "dev:local-cms": "npx netlify-cms-proxy-server",
+    "dev": "next dev",
     "build": "next build && next export -o ./dist"
   },
   "author": "Yann Vanhalewyn",
   "license": "MIT",
   "devDependencies": {
     "js-yaml": "^3.14.0",
-    "netlify-cms-app": "^2.9.6",
-    "npm-run-all": "^4.1.5",
     "postcss": "^8.1.8",
     "postcss-preset-env": "^6.7.0",
     "tailwindcss": "^2.0.1"
   },
   "dependencies": {
+    "@tinacms/git-client": "^0.33.0",
+    "netlify-identity-widget": "^1.9.1",
     "next": "^10.0.2",
+    "next-tinacms-json": "^0.33.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-markdown": "^5.0.3",
     "react-tinacms-editor": "^0.33.0",
+    "react-tinacms-github": "^0.33.0",
     "react-tinacms-inline": "^0.33.0",
     "styled-components": "^5.2.1",
     "tinacms": "^0.32.0"
