@@ -63,3 +63,9 @@ export const useCurrentUser = () => {
   }
   return currentUser;
 };
+
+export const accessToken = (netlifyUser) => {
+  if (netlifyUser && netlifyUser.token) {
+    return netlifyUser.token.access_token;
+  }
+}
