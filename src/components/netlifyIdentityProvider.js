@@ -69,3 +69,9 @@ export const accessToken = (netlifyUser) => {
     return netlifyUser.token.access_token;
   }
 }
+
+export const fullName = (netlifyUser) => {
+  if (netlifyUser && netlifyUser.user_metadata) {
+    return netlifyUser.user_metadata.full_name;
+  }
+}
