@@ -20,20 +20,27 @@ const NetlifyIdentityModal = () => {
 export const NetlifyIdentityProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
 
+  const setAndRefreshJWT = (user) => {
+    netlifyIdentity.refresh().then((jwt) => {
+    })
+    setCurrentUser(user);
+  };
+
   useEffect(() => {
     netlifyIdentity.init();
-    netlifyIdentity.on("login", setCurrentUser);
+    netlifyIdentity.on("init", () => console.log("init"));
+    netlifyIdentity.on("login", () => console.log("LOGIN"));
     netlifyIdentity.on("logout", setCurrentUser);
 
     const user = netlifyIdentity.currentUser();
     if (user) {
-      setCurrentUser(netlifyIdentity.currentUser());
+      setAndRefreshJWT(netlifyIdentity.currentUser());
     } else {
       netlifyIdentity.open();
     }
 
     return () => {
-      netlifyIdentity.off("login", setCurrentUser);
+      netlifyIdentity.off("login", setAndRefreshJWT);
       netlifyIdentity.off("logout", setCurrentUser);
     };
   }, []);
