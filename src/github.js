@@ -28,4 +28,24 @@ const fetchFile = async (
   return response;
 };
 
-export default { fetchFile };
+const commit = async (
+  filePath,
+  { accessToken, sha, fileContents, message, branch = BRANCH }
+) => {
+  console.log("WIll commit", { sha, fileContents, message, branch });
+  const response = await request({
+    path: `contents/${filePath}`,
+    headers: { Authorization: "Bearer " + accessToken },
+    method: "PUT",
+    body: {
+      message,
+      content: fileContents ? btoa(fileContents) : "",
+      branch,
+      sha,
+    },
+  });
+
+  return response;
+};
+
+export default { fetchFile, commit };

@@ -9,6 +9,7 @@ import {
   NetlifyIdentityProvider,
   useCurrentUser,
   accessToken,
+  fullName,
 } from "../components/netlifyIdentityProvider";
 import Header from "../components/header";
 import Banner from "../components/banner";
@@ -38,11 +39,28 @@ const BannerForm = (props) => {
         accessToken: accessToken(currentUser),
       });
 
-      let values = file.contents ? JSON.parse(file.contents) : {};
+      let values = file.content ? JSON.parse(file.content) : {};
       values._githubFile = file;
       console.log("Fetched data:", values);
 
       return values;
+    },
+    onSubmit: async (values) => {
+      let data = Object.assign({}, values);
+      delete data._githubFile;
+
+      try {
+        const res = await Github.commit("data/banner.json", {
+          accessToken: accessToken(currentUser),
+          fileContents: JSON.stringify(data, null, 2),
+          sha: values._githubFile.sha,
+          message: `Update ${"data/banner.json"} by ${fullName(currentUser)}`,
+        });
+        console.log("COMMIT RESULT", res);
+      } catch (err) {
+        console.error("Failed to create commit", err);
+      }
+
     },
     fields: [
       { name: "title", label: "Post Title", component: "markdown" },
