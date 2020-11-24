@@ -7,7 +7,6 @@ const NetlifyIdentityModal = () => {
   // Should use useLayoutEffect, but it prins annoying unsuppressable warnings
   // for SSR. Works fine as effect ¯\_(ツ)_/¯
   useEffect(() => {
-    console.log("Open netlify modal")
     netlifyIdentity.open();
 
     return () => {
@@ -20,28 +19,28 @@ const NetlifyIdentityModal = () => {
 
 export const NetlifyIdentityProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
   const setAndRefreshJWT = (user) => {
-    netlifyIdentity.refresh().then((jwt) => {
-    })
+    netlifyIdentity.refresh().then((_jwt) => {
+      setCurrentUser(netlifyIdentity.currentUser());
+    });
     setCurrentUser(user);
   };
 
   useEffect(() => {
-    console.log("INIT netlify identity")
     netlifyIdentity.init();
-    netlifyIdentity.on("init", () => console.log("init"));
-    netlifyIdentity.on("login", () => console.log("LOGIN"));
+    netlifyIdentity.on("login", setAndRefreshJWT);
     netlifyIdentity.on("logout", setCurrentUser);
+    // Cheecky dev helper
     window.netlifyIdentity = netlifyIdentity;
 
     const user = netlifyIdentity.currentUser();
 
-    console.log("INITIAL USER", user)
     if (user) {
       setAndRefreshJWT(netlifyIdentity.currentUser());
     } else {
-      netlifyIdentity.open();
+      setShowLoginModal(true);
     }
 
     return () => {
@@ -56,9 +55,10 @@ export const NetlifyIdentityProvider = ({ children }) => {
         {children}
       </CurrentUserContext.Provider>
     );
-  } else {
+  } else if (showLoginModal) {
     return <NetlifyIdentityModal />;
-  }
+  } else
+    return null;
 };
 
 export const useCurrentUser = () => {
