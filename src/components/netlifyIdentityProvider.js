@@ -1,19 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext, useContext } from "react";
 import netlifyIdentity from "netlify-identity-widget";
+
+const CurrentUserContext = createContext(null);
 
 const NetlifyIdentityModal = () => {
   // Should use useLayoutEffect, but it prins annoying unsuppressable warnings
   // for SSR. Works fine as effect ¯\_(ツ)_/¯
   useEffect(() => {
-    netlifyIdentity.open()
+    netlifyIdentity.open();
 
     return () => {
       netlifyIdentity.close();
-    }
+    };
   }, []);
 
   return null;
-}
+};
 
 export const NetlifyIdentityProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -33,14 +35,24 @@ export const NetlifyIdentityProvider = ({ children }) => {
     return () => {
       netlifyIdentity.off("login", setCurrentUser);
       netlifyIdentity.off("logout", setCurrentUser);
-    }
-  }, [])
-
-  console.log("Provider currentUser:", currentUser);
+    };
+  }, []);
 
   if (currentUser) {
-    return children;
+    return (
+      <CurrentUserContext.Provider value={currentUser}>
+        {children}
+      </CurrentUserContext.Provider>
+    );
   } else {
-    return <NetlifyIdentityModal/>
+    return <NetlifyIdentityModal />;
   }
-}
+};
+
+export const useCurrentUser = () => {
+  const currentUser = useContext(CurrentUserContext);
+  if (currentUser == undefined) {
+    throw new Error("useCurrentUser must be used within a NetlifyIdentityProvider")
+  }
+  return currentUser;
+};

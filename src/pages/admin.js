@@ -6,7 +6,7 @@ import Head from "next/head";
 
 import { readData } from "../content";
 
-import { NetlifyIdentityProvider } from "../components/netlifyIdentityProvider";
+import { NetlifyIdentityProvider, useCurrentUser } from "../components/netlifyIdentityProvider";
 import Header from "../components/header";
 import Banner from "../components/banner";
 import Lessons from "../components/lessons";
@@ -25,6 +25,9 @@ export async function getStaticProps() {
 }
 
 const BannerForm = (props) => {
+  const currentUser = useCurrentUser();
+  console.log("render + usercontext:", currentUser);
+
   const formConfig = {
     id: "banner",
     label: "Banner",
@@ -56,7 +59,7 @@ const BannerForm = (props) => {
 
 
 const fetchFile = async () => {
-  let response = await Github.fetchFile("package2.json");
+  let response = await Github.fetchFile("package.json");
   console.log("RESPONSE:", response);
   return response;
 }
