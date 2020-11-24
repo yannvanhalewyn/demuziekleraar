@@ -28,15 +28,15 @@ export default function Banner({ title, subtitle, images, promo }) {
             <div className="relative flex-grow mt-16 md:mt-24">
               <div
                 className="absolute sm:z-30 md:z-0 lg:z-30 w-40 h-40 sm:w-48 sm:h-48 lg:w-48 lg:h-48 img-frame hero-image-1 border-blue-500"
-                style={{ backgroundImage: `url('${images.image1}')` }}
+                style={{ backgroundImage: `url('${images.image1 || ''}')` }}
               ></div>
               <div
                 className="relative sm:z-20 md:z-0 lg:z-20 w-48 h-48 sm:w-64 sm:h-64 lg:w-84 lg:h-84 mx-auto img-frame border-blue-500"
-                style={{ backgroundImage: `url('${images.image2}')` }}
+                style={{ backgroundImage: `url('${images.image2 || ''}')` }}
               ></div>
               <div
                 className="absolute sm:z-30 md:z-0 lg:z-30 w-40 h-40 sm:w-48 sm:h-48 lg:w-48 lg:h-48 img-frame hero-image-2 border-blue-500"
-                style={{ backgroundImage: `url('${images.image3}')` }}
+                style={{ backgroundImage: `url('${images.image3 || ''}')` }}
               ></div>
             </div>
           </div>
@@ -61,7 +61,7 @@ export default function Banner({ title, subtitle, images, promo }) {
                 {promo.title}
               </h3>
               <div className="mt-8 text-blue-100 leading-relaxed tracking-wide" >
-                <ReactMarkdown children={subtitle}/>
+                <ReactMarkdown children={promo.description}/>
               </div>
               <div className="mt-12 text-center">
                 <button className="btn btn--s bg-white text-blue-700 hover:bg-blue-700 border-white border-2 hover:text-white">
@@ -74,7 +74,7 @@ export default function Banner({ title, subtitle, images, promo }) {
           <div className="flex-1 w-full mt-12 lg:mt-0 md:max-w-md">
             <div
               className="h-72 sm:h-112 md:h-72 lg:h-full mx-auto lg:mx-0 img-frame border-white"
-              style={{ backgroundImage: `url('${promo.image}')` }}
+              style={{ backgroundImage: `url('${promo.image || ''}')` }}
             ></div>
           </div>
         </div>
