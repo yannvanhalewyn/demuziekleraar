@@ -57,7 +57,11 @@ export default function Pricing({ pricingModels }) {
               return (
                 <div
                   key={i}
-                  className={`lg:flex-1 p-6 xs:p-10 md:p-16 rounded-xl shadow-xl bg-blue-600 lg:rounded-none lg:shadow-none lg:bg-none ${i !== pricingModels.length -1 ? "mb-12 lg:mb-0 lg:border-r-2 lg:border-blue-300" : ""}`}
+                  className={`lg:flex-1 p-6 xs:p-10 md:p-16 rounded-xl shadow-xl bg-blue-600 lg:rounded-none lg:shadow-none lg:bg-none ${
+                    i !== pricingModels.length - 1
+                      ? "mb-12 lg:mb-0 lg:border-r-2 lg:border-blue-300"
+                      : ""
+                  }`}
                 >
                   <div className="text-center">
                     <div
@@ -79,6 +83,16 @@ export default function Pricing({ pricingModels }) {
 
                     <div className="flex justify-around">
                       <span className="flex items-center mt-2 text-blue-300 text-xs">
+                        <svg
+                          className="w-4 h-4 fill-current text-blue-300"
+                          viewBox="0 0 24 24"
+                        >
+                          {pricingModel.location == "Thuis" ? (
+                            <path d="M21.66,10.25l-9-8a1,1,0,0,0-1.32,0l-9,8a1,1,0,0,0-.27,1.11A1,1,0,0,0,3,12H4v9a1,1,0,0,0,1,1H19a1,1,0,0,0,1-1V12h1a1,1,0,0,0,.93-.64A1,1,0,0,0,21.66,10.25ZM13,20H11V17a1,1,0,0,1,2,0Zm5,0H15V17a3,3,0,0,0-6,0v3H6V12H18ZM5.63,10,12,4.34,18.37,10Z" />
+                          ) : (
+                            <path d="M14,8h1a1,1,0,0,0,0-2H14a1,1,0,0,0,0,2Zm0,4h1a1,1,0,0,0,0-2H14a1,1,0,0,0,0,2ZM9,8h1a1,1,0,0,0,0-2H9A1,1,0,0,0,9,8Zm0,4h1a1,1,0,0,0,0-2H9a1,1,0,0,0,0,2Zm12,8H20V3a1,1,0,0,0-1-1H5A1,1,0,0,0,4,3V20H3a1,1,0,0,0,0,2H21a1,1,0,0,0,0-2Zm-8,0H11V16h2Zm5,0H15V15a1,1,0,0,0-1-1H10a1,1,0,0,0-1,1v5H6V4H18Z" />
+                          )}
+                        </svg>
                         <span className="ml-1">{pricingModel.location}</span>
                       </span>
                     </div>
@@ -97,7 +111,7 @@ export default function Pricing({ pricingModels }) {
                             : pricingModel.priceChildren}
                         </span>
                       </div>
-                      <span className="text-blue-300">
+                      <span className="block mt-2 text-blue-300">
                         {pricingModel.priceSubtitle}
                       </span>
                     </div>
