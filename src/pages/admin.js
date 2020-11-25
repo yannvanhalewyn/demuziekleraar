@@ -101,7 +101,7 @@ const lessonsFormConfig = {
       ]),
       textField("Docent", "teacher.name"),
       imageField("Docent Afbeelding", "teacher.image"),
-      groupListField("Prestaties", "achievements", defaultLabelProps("description", "Nieuwe prestatie"), [
+      groupListField("Docent Prestaties", "teacher.achievements", defaultLabelProps("description", "Nieuwe prestatie"), [
         imageField("Icoon", "icon"),
         richField("Beschrijving", "description"),
       ]),
