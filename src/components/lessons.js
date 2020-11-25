@@ -92,10 +92,10 @@ const Teacher = ({ teacher, i }) => {
   );
 };
 
-export default function LessonsPreview({ lessonGroups }) {
+export default function Lessons({ lessonGroups }) {
   return (
     <div>
-      {lessonGroups.map((lessonGroup, i) => {
+      {lessonGroups?.map((lessonGroup, i) => {
         return (
           <div key={i} className="m-container py-12 mb-12">
             {lessonGroup.lessons.map((lesson, i) =>
