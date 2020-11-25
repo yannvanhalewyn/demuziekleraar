@@ -2,6 +2,7 @@ import { useState } from "react";
 import { TinaProvider, TinaCMS, useCMS, useForm, usePlugin } from "tinacms";
 import { MarkdownFieldPlugin } from "react-tinacms-editor";
 import Github from "../netlifyGithub";
+import GithubMediaStore from "../netlifyGithubMediaStore";
 import Head from "next/head";
 
 import { readData } from "../content";
@@ -43,22 +44,25 @@ const BannerForm = (props) => {
     console.log("Fetched file:", file);
 
     return values;
-  }
+  };
 
   const onSubmit = async (values, form) => {
     try {
       cms.alerts.info("Opslaan... ");
+
       const res = await Github.commit("data/banner.json", {
         accessToken: accessToken(currentUser),
         fileContents: JSON.stringify(values, null, 2),
+        encode: true,
         sha: githubFile.sha,
         message: `Update ${"data/banner.json"} by ${fullName(currentUser)}`,
       });
-      console.log("Commit success", res);
+
       cms.alerts.success(
         "Opgeslagen! Het kan een paar minuten duren voordat " +
           "de aanpassingen te zien zijn."
       );
+
       setGithubFile({ ...githubFile, sha: res.content.sha });
     } catch (err) {
       cms.alerts.error(
@@ -115,19 +119,32 @@ const BannerForm = (props) => {
   }
 };
 
-export default function Admin(props) {
+const TinaApp = () => {
+  const currentUser = useCurrentUser();
+  const mediaStore = new GithubMediaStore({
+    accessToken: accessToken(currentUser),
+    directory: "public/media",
+  });
+
   const cms = new TinaCMS({
     enabled: true,
     sidebar: true,
     plugins: [MarkdownFieldPlugin],
+    media: mediaStore
   });
 
   return (
+    <TinaProvider cms={cms}>
+      <Header />
+      <BannerForm />
+    </TinaProvider>
+  );
+};
+
+export default function Admin(props) {
+  return (
     <NetlifyIdentityProvider>
-      <TinaProvider cms={cms}>
-        <Header />
-        <BannerForm />
-      </TinaProvider>
+      <TinaApp />
     </NetlifyIdentityProvider>
   );
 }
