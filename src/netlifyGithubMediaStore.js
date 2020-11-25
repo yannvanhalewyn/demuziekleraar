@@ -124,4 +124,8 @@ export default class NetlifyGithubMediaStore {
   async delete(mediaFile) {
     return await _delete(this, mediaFile);
   }
+
+  previewSrc(src) {
+    return src;
+  }
 }

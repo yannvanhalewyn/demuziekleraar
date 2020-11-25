@@ -92,7 +92,12 @@ const BannerForm = (props) => {
         fields: [
           { name: "title", label: "Titel", component: "text" },
           { name: "description", label: "Beschrijving", component: "markdown" },
-          { name: "image", label: "Afbeelding", component: "image" },
+          {
+            name: "image",
+            label: "Afbeelding",
+            component: "image",
+            parse: (media) => `/media/${media.filename}`
+          },
         ],
       },
     ],
@@ -130,7 +135,7 @@ const TinaApp = () => {
     enabled: true,
     sidebar: true,
     plugins: [MarkdownFieldPlugin],
-    media: mediaStore
+    media: mediaStore,
   });
 
   return (
