@@ -12,14 +12,12 @@
   "devDependencies": {
     "postcss": "^8.1.8",
     "postcss-preset-env": "^6.7.0",
-    "tailwindcss": "^2.0.1"
+    "tailwindcss": "^2.0.1",
+    "current-git-branch": "^1.1.0"
   },
   "dependencies": {
-    "@tinacms/git-client": "^0.33.0",
-    "current-git-branch": "^1.1.0",
     "netlify-identity-widget": "^1.9.1",
     "next": "^10.0.2",
-    "next-tinacms-json": "^0.33.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-markdown": "^5.0.3",
