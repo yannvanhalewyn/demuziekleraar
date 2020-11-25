@@ -32,6 +32,10 @@ const richField = (label, name) => {
   return { name, label, component: "markdown" };
 };
 
+const groupListField = (label, name, props, fields) => {
+  return { name, label, fields, component: "group-list", ...props };
+};
+
 const bannerFormConfig = {
   id: "banner",
   label: "Banner",
@@ -55,12 +59,61 @@ const bannerFormConfig = {
   ],
 };
 
+const lessonGroupProps = {
+  defaultItem: () => ({
+    lessons: [],
+    teacher: { achievements: [] },
+  }),
+  itemProps: (lessonGroup) => {
+    return {
+      label:
+        lessonGroup?.lessons?.length > 0
+          ? lessonGroup.lessons.map((l) => l.name).join(" | ")
+          : "Nieuwe lesgroep",
+    };
+  },
+};
+
+const lessonProps = {
+  itemProps: lesson => lesson.name || "Nieuwe les"
+}
+
+const teacherProps = {
+  itemProps: teacher => teacher.name || "Nieuwe docent"
+}
+
+const lessonsFormConfig = {
+  id: "lessons",
+  label: "Lessen",
+  fileName: "data/lessons.json",
+  fields: [
+    groupListField("Lessen", "lessonGroups", lessonGroupProps, [
+      groupListField("Lessen", "lessons", {}, [
+        textField("Naam", "name"),
+        richField("Beschrijving", "description"),
+        imageField("Afbeelding", "image"),
+      ]),
+      textField("Docent", "teacher.name"),
+      imageField("Docent Afbeelding", "teacher.image"),
+      groupListField("Prestaties", "achievements", {}, [
+        imageField("Icoon", "icon"),
+        richField("Beschrijving", "description"),
+      ]),
+    ]),
+  ],
+};
+
 const BannerForm = (props) => {
   const [banner, form] = useGithubJsonForm(bannerFormConfig);
   usePlugin(form);
   return <Banner {...banner} />;
 };
 
+const LessonsForm = (props) => {
+  const [lessons, form] = useGithubJsonForm(lessonsFormConfig);
+  usePlugin(form);
+  console.log(lessons);
+  return <Lessons {...lessons} />;
 };
 
 const TinaApp = () => {
@@ -81,6 +134,7 @@ const TinaApp = () => {
     <TinaProvider cms={cms}>
       <Header />
       <BannerForm />
+      <LessonsForm />
     </TinaProvider>
   );
 };
