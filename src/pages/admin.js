@@ -142,7 +142,6 @@ const LessonsForm = (props) => {
 
 const PricingForm = (props) => {
   const [pricing, form] = useGithubJsonForm(pricingFormConfig);
-  console.log(pricing);
   usePlugin(form);
   return <Pricing {...pricing} />;
 };
