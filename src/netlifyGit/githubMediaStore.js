@@ -1,5 +1,5 @@
 import path from "path";
-import Github from "./netlifyGithub";
+import Github from "./githubClient";
 
 const PREVIEWABLE = [".jpg", ".jpeg", ".png", ".webp", ".svg"];
 
