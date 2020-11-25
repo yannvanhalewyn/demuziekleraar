@@ -51,7 +51,7 @@ const defaultLabelProps = (key, default_) => {
 const defaultNameProps = default_ => defaultLabelProps("name", default_);
 
 const bannerFormConfig = {
-  id: "banner",
+  id: "2-banner",
   label: "Banner",
   fileName: "data/banner.json",
   fields: [
@@ -89,7 +89,7 @@ const lessonGroupProps = {
 };
 
 const lessonsFormConfig = {
-  id: "lessons",
+  id: "1-lessons",
   label: "Lessen",
   fileName: "data/lessons.json",
   fields: [
@@ -110,7 +110,7 @@ const lessonsFormConfig = {
 };
 
 const pricingFormConfig = {
-  id: "pricing",
+  id: "0-pricing",
   label: "Tarieven",
   fileName: "data/pricing.json",
   fields: [
