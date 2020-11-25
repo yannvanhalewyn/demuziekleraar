@@ -30,22 +30,34 @@ const fetchFile = async (
 
 const commit = async (
   filePath,
-  { accessToken, sha, fileContents, message, branch = BRANCH }
+  { accessToken, sha, fileContents, message, branch = BRANCH, encode = false }
 ) => {
-  console.log("WIll commit", { sha, fileContents, message, branch });
-  const response = await request({
+  // 409 = when supplied SHA doesn't match server SHA
+  // Cancel and show error saying resource was already modified
+  // Or maybe just a blocking confirm query
+  return await request({
     path: `contents/${filePath}`,
     headers: { Authorization: "Bearer " + accessToken },
     method: "PUT",
     body: {
       message,
-      content: fileContents ? btoa(fileContents) : "",
+      content: encode ? btoa(fileContents) : fileContents,
       branch,
       sha,
     },
   });
-
-  return response;
 };
 
-export default { fetchFile, commit };
+const deleteFile = async (
+  filePath,
+  { accessToken, sha, message, branch = BRANCH }
+) => {
+  return await request({
+    path: `contents/${filePath}`,
+    headers: { Authorization: "Bearer " + accessToken },
+    method: "DELETE",
+    body: { message, branch, sha },
+  });
+};
+
+export default { fetchFile, commit, deleteFile };
