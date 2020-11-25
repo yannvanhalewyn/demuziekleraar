@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@tinacms/git-client": "^0.33.0",
+    "current-git-branch": "^1.1.0",
     "netlify-identity-widget": "^1.9.1",
     "next": "^10.0.2",
     "next-tinacms-json": "^0.33.0",
