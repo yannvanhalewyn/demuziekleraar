@@ -1,6 +1,7 @@
-import { TinaProvider, TinaCMS, useForm, usePlugin } from "tinacms";
+import { useState } from "react";
+import { TinaProvider, TinaCMS, useCMS, useForm, usePlugin } from "tinacms";
 import { MarkdownFieldPlugin } from "react-tinacms-editor";
-import Github from "../github";
+import Github from "../netlifyGithub";
 import Head from "next/head";
 
 import { readData } from "../content";
@@ -28,42 +29,57 @@ export async function getStaticProps() {
 }
 
 const BannerForm = (props) => {
+  const cms = useCMS();
   const currentUser = useCurrentUser();
+  const [githubFile, setGithubFile] = useState(null);
+
+  const loadInitialValues = async () => {
+    const file = await Github.fetchFile("data/banner.json", {
+      accessToken: accessToken(currentUser),
+    });
+    setGithubFile(file);
+
+    let values = file.content ? JSON.parse(file.content) : {};
+    console.log("Fetched file:", file);
+
+    return values;
+  }
+
+  const onSubmit = async (values, form) => {
+    try {
+      cms.alerts.info("Opslaan... ");
+      const res = await Github.commit("data/banner.json", {
+        accessToken: accessToken(currentUser),
+        fileContents: JSON.stringify(values, null, 2),
+        sha: githubFile.sha,
+        message: `Update ${"data/banner.json"} by ${fullName(currentUser)}`,
+      });
+      console.log("Commit success", res);
+      cms.alerts.success(
+        "Opgeslagen! Het kan een paar minuten duren voordat " +
+          "de aanpassingen te zien zijn."
+      );
+      setGithubFile({ ...githubFile, sha: res.content.sha });
+    } catch (err) {
+      cms.alerts.error(
+        "Er ging iets mis, aanpassingen konden niet opgeslagen worden."
+      );
+      console.error("Failed to create commit", err);
+    }
+  };
 
   const formConfig = {
     id: "banner",
     label: "Banner",
-    initialValues: { images: {}, promo: {} },
-    loadInitialValues: async () => {
-      const file = await Github.fetchFile("data/banner.json", {
-        accessToken: accessToken(currentUser),
-      });
-
-      let values = file.content ? JSON.parse(file.content) : {};
-      values._githubFile = file;
-      console.log("Fetched data:", values);
-
-      return values;
-    },
-    onSubmit: async (values) => {
-      let data = Object.assign({}, values);
-      delete data._githubFile;
-
-      try {
-        const res = await Github.commit("data/banner.json", {
-          accessToken: accessToken(currentUser),
-          fileContents: JSON.stringify(data, null, 2),
-          sha: values._githubFile.sha,
-          message: `Update ${"data/banner.json"} by ${fullName(currentUser)}`,
-        });
-        console.log("COMMIT RESULT", res);
-      } catch (err) {
-        console.error("Failed to create commit", err);
-      }
-
-    },
+    loadInitialValues: loadInitialValues,
+    onSubmit: onSubmit,
     fields: [
-      { name: "title", label: "Post Title", component: "markdown" },
+      {
+        name: "title",
+        label: "Post Title",
+        component: "markdown",
+        description: "Dit is een beschrijving",
+      },
       { name: "subtitle", label: "Ondertitel", component: "markdown" },
       {
         name: "promo",
@@ -79,9 +95,24 @@ const BannerForm = (props) => {
   };
 
   const [banner, form] = useForm(formConfig);
+
+  // Formconfig is not reloaded every cycle. This is an issue for the onSubmit
+  // handler which depends on the githubFile state. When a new githubFile
+  // comes in after load, the form will still use the old onSubmit, which
+  // still uses the initial githubFile state.
+  // https://github.com/tinacms/tinacms/blob/master/packages/%40tinacms/react-core/src/use-form.ts#L71
+  // There seems to be no way of storing the new SHA without using some form of
+  // mutable OO like TinaCMS's GithubFile class does (mutate this.sha after
+  // fetchFile). So I'd rather hack the correct handler in this way and keep the
+  // API fully functional.
+  form.onSubmit = onSubmit;
   usePlugin(form);
 
-  return <Banner {...banner} />;
+  if (banner.promo) {
+    return <Banner {...banner} />;
+  } else {
+    return null;
+  }
 };
 
 export default function Admin(props) {
