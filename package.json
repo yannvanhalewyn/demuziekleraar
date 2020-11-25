@@ -10,7 +10,6 @@
   "author": "Yann Vanhalewyn",
   "license": "MIT",
   "devDependencies": {
-    "js-yaml": "^3.14.0",
     "postcss": "^8.1.8",
     "postcss-preset-env": "^6.7.0",
     "tailwindcss": "^2.0.1"
