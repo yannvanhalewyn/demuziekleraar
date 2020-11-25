@@ -1,5 +1,4 @@
 const BRANCH = process.env.GIT_BRANCH;
-console.log("BRANCH:", BRANCH);
 
 const request = async ({ path, headers, method, body }) => {
   const url = `https://demuziekleraar.netlify.app/.netlify/git/github/${path}`;
