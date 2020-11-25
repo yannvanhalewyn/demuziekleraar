@@ -23,14 +23,15 @@ export const useGithubJsonForm = (formConfig) => {
     try {
       cms.alerts.info("Opslaan... ");
 
-      const res = await Github.commit("data/banner.json", {
+      const res = await Github.commit(formConfig.fileName, {
         accessToken: accessToken(currentUser),
         fileContents: JSON.stringify(values, null, 2),
         encode: true,
         sha: githubFile.sha,
-        message: `Update ${"data/banner.json"} by ${fullName(currentUser)}`,
+        message: `Update ${formConfig.fileName} by ${fullName(currentUser)}`,
       });
 
+      // TODO better error handling, a 4xx response will just return the res.
       cms.alerts.success(
         "Opgeslagen! Het kan een paar minuten duren voordat " +
           "de aanpassingen te zien zijn."
@@ -42,6 +43,7 @@ export const useGithubJsonForm = (formConfig) => {
         "Er ging iets mis, aanpassingen konden niet opgeslagen worden."
       );
       console.error("Failed to create commit", err);
+      throw(err); // TinaCMS won't allow retries if nothing is thrown.
     }
   };
 
