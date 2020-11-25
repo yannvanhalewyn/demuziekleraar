@@ -53,7 +53,7 @@ export default function Pricing({ pricingModels }) {
           </div>
 
           <div className="mt-6 lg:flex lg:bg-blue-600 lg:rounded-xl lg:overflow-hidden lg:shadow-xl">
-            {pricingModels.map((pricingModel, i) => {
+            {pricingModels?.map((pricingModel, i) => {
               return (
                 <div
                   key={i}
@@ -113,7 +113,7 @@ export default function Pricing({ pricingModels }) {
                   <hr className="my-8 md:my-12 border-blue-300 border-t-2" />
 
                   <div className="text-blue-300 sm:text-base">
-                    {pricingModel.features.map((feature, i) => {
+                    {pricingModel.features?.map((feature, i) => {
                       return (
                         <div key={i} className="flex items-center py-3">
                           <div className="w-8 h-8 sm:w-6 sm:h-6">

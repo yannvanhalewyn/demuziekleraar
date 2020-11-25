@@ -22,9 +22,7 @@ export const NetlifyIdentityProvider = ({ children }) => {
   const [showLoginModal, setShowLoginModal] = useState(false);
 
   const refreshTokenAndSetUser = () => {
-    console.log("refreshing token, old token:", accessToken(netlifyIdentity.currentUser()))
     netlifyIdentity.refresh().then((_jwt) => {
-      console.log("done, new token:", accessToken(netlifyIdentity.currentUser()))
       setCurrentUser(netlifyIdentity.currentUser());
     });
   };

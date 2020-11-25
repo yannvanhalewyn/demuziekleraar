@@ -32,9 +32,23 @@ const richField = (label, name) => {
   return { name, label, component: "markdown" };
 };
 
+const listField = (label, name, props, field) => {
+  return { name, label, field, component: "list", ...props };
+};
+
 const groupListField = (label, name, props, fields) => {
   return { name, label, fields, component: "group-list", ...props };
 };
+
+const defaultLabelProps = (key, default_) => {
+  return {
+    itemProps: item => ({
+      label: item[key] || default_
+    })
+  }
+}
+
+const defaultNameProps = default_ => defaultLabelProps("name", default_);
 
 const bannerFormConfig = {
   id: "banner",
@@ -74,34 +88,45 @@ const lessonGroupProps = {
   },
 };
 
-const lessonProps = {
-  itemProps: lesson => lesson.name || "Nieuwe les"
-}
-
-const teacherProps = {
-  itemProps: teacher => teacher.name || "Nieuwe docent"
-}
-
 const lessonsFormConfig = {
   id: "lessons",
   label: "Lessen",
   fileName: "data/lessons.json",
   fields: [
     groupListField("Lessen", "lessonGroups", lessonGroupProps, [
-      groupListField("Lessen", "lessons", {}, [
+      groupListField("Lessen", "lessons", defaultNameProps("Nieuwe les"), [
         textField("Naam", "name"),
         richField("Beschrijving", "description"),
         imageField("Afbeelding", "image"),
       ]),
       textField("Docent", "teacher.name"),
       imageField("Docent Afbeelding", "teacher.image"),
-      groupListField("Prestaties", "achievements", {}, [
+      groupListField("Prestaties", "achievements", defaultLabelProps("description", "Nieuwe prestatie"), [
         imageField("Icoon", "icon"),
         richField("Beschrijving", "description"),
       ]),
     ]),
   ],
 };
+
+const pricingFormConfig = {
+  id: "pricing",
+  label: "Tarieven",
+  fileName: "data/pricing.json",
+  fields: [
+    groupListField("Tarieven", "pricingModels", defaultNameProps("Nieuw tarief"), [
+      textField("Naam", "name"),
+      textField("Locatie", "location"),
+      textField("Prijs < 21", "priceChildren"),
+      textField("Prijs > 21", "priceAdults"),
+      textField("Prijs ondertitel", "priceSubtitle"),
+      richField("Kortingszin", "discount"),
+      groupListField("Kenmerken", "features", defaultNameProps("Nieuw kenmerk"), [
+        richField("Kenmerk", "name")
+      ]),
+    ])
+  ]
+}
 
 const BannerForm = (props) => {
   const [banner, form] = useGithubJsonForm(bannerFormConfig);
@@ -112,9 +137,16 @@ const BannerForm = (props) => {
 const LessonsForm = (props) => {
   const [lessons, form] = useGithubJsonForm(lessonsFormConfig);
   usePlugin(form);
-  console.log(lessons);
   return <Lessons {...lessons} />;
 };
+
+const PricingForm = (props) => {
+  const [pricing, form] = useGithubJsonForm(pricingFormConfig);
+  console.log(pricing);
+  usePlugin(form);
+  return <Pricing {...pricing} />;
+};
+
 
 const TinaApp = () => {
   const currentUser = useCurrentUser();
@@ -135,6 +167,7 @@ const TinaApp = () => {
       <Header />
       <BannerForm />
       <LessonsForm />
+      <PricingForm />
     </TinaProvider>
   );
 };
