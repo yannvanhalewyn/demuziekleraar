@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import { readData } from "../content";
 import Header from "../components/header";
 import Banner from "../components/banner";
@@ -25,6 +26,9 @@ export const config = {
 export default function Home(props) {
   return (
     <React.Fragment>
+      <Head>
+        <title>De Muziekleraar | Home</title>
+      </Head>
       <Header/>
       <Banner {...props.banner}/>
       <Lessons {...props.lessons}/>

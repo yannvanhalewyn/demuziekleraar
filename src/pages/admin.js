@@ -174,6 +174,9 @@ const TinaApp = () => {
 export default function Admin(props) {
   return (
     <NetlifyIdentityProvider>
+      <Head>
+        <title>De Muziekleraar | Admin</title>
+      </Head>
       <TinaApp />
     </NetlifyIdentityProvider>
   );
