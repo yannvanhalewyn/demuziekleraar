@@ -21,30 +21,31 @@ export const NetlifyIdentityProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [showLoginModal, setShowLoginModal] = useState(false);
 
-  const setAndRefreshJWT = (user) => {
+  const refreshTokenAndSetUser = () => {
+    console.log("refreshing token, old token:", accessToken(netlifyIdentity.currentUser()))
     netlifyIdentity.refresh().then((_jwt) => {
+      console.log("done, new token:", accessToken(netlifyIdentity.currentUser()))
       setCurrentUser(netlifyIdentity.currentUser());
     });
-    setCurrentUser(user);
   };
 
   useEffect(() => {
     netlifyIdentity.init();
-    netlifyIdentity.on("login", setAndRefreshJWT);
+    netlifyIdentity.on("login", refreshTokenAndSetUser);
     netlifyIdentity.on("logout", setCurrentUser);
     // Cheecky dev helper
     window.netlifyIdentity = netlifyIdentity;
 
     const user = netlifyIdentity.currentUser();
 
-    if (user) {
-      setAndRefreshJWT(netlifyIdentity.currentUser());
+    if (netlifyIdentity.currentUser()) {
+      refreshTokenAndSetUser();
     } else {
       setShowLoginModal(true);
     }
 
     return () => {
-      netlifyIdentity.off("login", setAndRefreshJWT);
+      netlifyIdentity.off("login", refreshTokenAndSetUser);
       netlifyIdentity.off("logout", setCurrentUser);
     };
   }, []);
