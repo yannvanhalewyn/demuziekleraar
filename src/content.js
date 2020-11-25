@@ -1,10 +1,12 @@
-import yaml from "js-yaml";
 import fs from "fs";
 
-const readYamlFile = (filename) => {
-  return yaml.safeLoad(fs.readFileSync(filename, 'utf8'));
+const readJsonFile = (filename) => {
+  if (fs.existsSync(filename)) {
+    return JSON.parse(fs.readFileSync(filename));
+  }
+  return null;
 }
 
 export function readData(collectionName) {
-  return readYamlFile(`data/${collectionName}.yml`)
+  return readJsonFile(`data/${collectionName}.json`)
 }
