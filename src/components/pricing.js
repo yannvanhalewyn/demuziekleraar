@@ -8,7 +8,7 @@ export default function Pricing({ pricingModels }) {
   const [toggled, setToggled] = useState(false);
 
   return (
-    <div className="bg-blue-700 text-white">
+    <div id="pricing" className="bg-blue-700 text-white">
       <div className="m-container py-24">
         <div className="relative">
           <div className="absolute bg-polka-dots--blue bg-polka-dots--title w-24 h-24 mt-4 bg-repeat"></div>
@@ -105,10 +105,20 @@ export default function Pricing({ pricingModels }) {
                         >
                           €
                         </span>
-                        <span className="font-bold text-5xl">
+                        {/* 'toggled' is used by admin preview, vanilla js on homepage */}
+                        <span
+                          id="js-price-children"
+                          className="font-bold text-5xl"
+                        >
                           {toggled
                             ? pricingModel.priceAdults
                             : pricingModel.priceChildren}
+                        </span>
+                        <span
+                          id="js-price-adults"
+                          className="hidden font-bold text-5xl"
+                        >
+                          {pricingModel.priceAdults}
                         </span>
                       </div>
                       <span className="block mt-2 text-blue-300">

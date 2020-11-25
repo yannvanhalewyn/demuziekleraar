@@ -1,7 +1,7 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 
-const LessonPreview = (lesson, { i }) => {
+const Lesson = (lesson, { i }) => {
   const flip = i % 2 !== 0;
 
   return (
@@ -94,12 +94,12 @@ const Teacher = ({ teacher, i }) => {
 
 export default function Lessons({ lessonGroups }) {
   return (
-    <div>
+    <div id="lessons">
       {lessonGroups?.map((lessonGroup, i) => {
         return (
           <div key={i} className="m-container py-12 mb-12">
             {lessonGroup.lessons.map((lesson, i) =>
-              LessonPreview(lesson, { i })
+              Lesson(lesson, { i })
             )}
             <Teacher i={i} teacher={lessonGroup.teacher} />
           </div>

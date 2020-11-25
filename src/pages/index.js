@@ -28,6 +28,7 @@ export default function Home(props) {
     <React.Fragment>
       <Head>
         <title>De Muziekleraar | Home</title>
+        <script src="/js/app.js" />
       </Head>
       <Header/>
       <Banner {...props.banner}/>
