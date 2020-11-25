@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { markdownToHtml } from "../markdown";
+import ReactMarkdown from "react-markdown";
 import SignupButton from "./signup_button";
 
 export default function Pricing({ pricingModels }) {
@@ -104,12 +104,10 @@ export default function Pricing({ pricingModels }) {
 
                     <SignupButton className="shadow-md mt-12 bg-orange-500 hover:bg-orange-600" />
 
-                    <div
+                    <ReactMarkdown
                       className="h-8 mt-4 text-blue-300 strong-white"
-                      dangerouslySetInnerHTML={{
-                        __html: markdownToHtml(pricingModel.discount || ""),
-                      }}
-                    ></div>
+                      children={pricingModel.discount || ""}
+                    />
                   </div>
 
                   <hr className="my-8 md:my-12 border-blue-300 border-t-2" />
@@ -126,12 +124,10 @@ export default function Pricing({ pricingModels }) {
                               <path d="M10.0933 0.56543C5.04151 0.56543 0.908203 5.06543 0.908203 10.5654C0.908203 16.0654 5.04151 20.5654 10.0933 20.5654C15.1452 20.5654 19.2785 16.0654 19.2785 10.5654C19.2785 5.06543 15.1452 0.56543 10.0933 0.56543ZM13.9511 8.86543L9.54223 13.6654C9.17482 14.0654 8.62371 14.0654 8.25631 13.6654L6.23558 11.4654C5.86817 11.0654 5.86817 10.4654 6.23558 10.0654C6.60298 9.66543 7.15409 9.66543 7.5215 10.0654L8.89927 11.5654L12.6652 7.46543C13.0326 7.06543 13.5837 7.06543 13.9511 7.46543C14.3185 7.86543 14.3185 8.46543 13.9511 8.86543Z" />
                             </svg>
                           </div>
-                          <div
+                          <ReactMarkdown
                             className="ml-4 strong-orange-500"
-                            dangerouslySetInnerHTML={{
-                              __html: markdownToHtml(feature.name),
-                            }}
-                          ></div>
+                            children={feature.name}
+                          />
                         </div>
                       );
                     })}

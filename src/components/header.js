@@ -2,14 +2,14 @@ export default function Components(props) {
   return (
     <header className="flex flex-col md:flex-row justify-between items-center m-container">
       <div className="flex-1 hidden md:block">
-        <nav className="pr-4 lg:pr-12 flex justify-between font-medium text-blue-500">
-          <a className="hover:font-semibold" href="#lessons">
+        <nav className="pr-4 lg:pr-12 flex justify-between text-blue-500">
+          <a href="#lessons">
             Muziekles
           </a>
-          <a className="hover:font-semibold" href="#pricing">
+          <a href="#pricing">
             Tarieven
           </a>
-          <a className="hover:font-semibold" href="#contact">
+          <a href="#contact">
             Contact
           </a>
         </nav>

@@ -1,6 +1,5 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
-import { markdownToHtml } from "../markdown";
 import SignupButton from "./signup_button";
 
 export default function Banner({ title, subtitle, images, promo }) {

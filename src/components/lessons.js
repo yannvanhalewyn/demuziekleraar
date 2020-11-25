@@ -1,5 +1,5 @@
 import React from "react";
-import { markdownToHtml } from "../markdown";
+import ReactMarkdown from "react-markdown";
 
 const LessonPreview = (lesson, { i }) => {
   const flip = i % 2 !== 0;
@@ -19,12 +19,10 @@ const LessonPreview = (lesson, { i }) => {
             {lesson.name}
           </h2>
 
-          <div
+          <ReactMarkdown
             className="py-8 text-gray-800 leading-relaxed tracking-wider"
-            dangerouslySetInnerHTML={{
-              __html: markdownToHtml(lesson.description),
-            }}
-          ></div>
+            children={lesson.description}
+          />
 
           <div className="text-center">
             <button className="btn btn--s border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white">
@@ -72,12 +70,10 @@ const Teacher = ({ teacher, i }) => {
                   ></div>
                 </div>
 
-                <span
+                <ReactMarkdown
                   className="ml-4 text-sm md:text-base text-gray-800"
-                  dangerouslySetInnerHTML={{
-                    __html: markdownToHtml(achievement.description),
-                  }}
-                ></span>
+                  children={achievement.description}
+                />
               </div>
             );
           })}
