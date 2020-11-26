@@ -1,0 +1,16 @@
+{
+  "lessonGroups": [
+    {
+      "lessons": [
+        {
+          "name": "Gitaarles",
+          "description": "hallo allemaal! Ik ben Manuel",
+          "image": "/media/unsplash-guitarist.png"
+        }
+      ],
+      "teacher": {
+        "achievements": []
+      }
+    }
+  ]
+}
