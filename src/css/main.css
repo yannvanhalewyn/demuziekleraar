@@ -45,6 +45,19 @@ button:active {
     @apply border-white;
 }
 
+.btn--blue {
+    @apply bg-blue-500 text-white
+}
+
+.btn--blue:hover {
+    @apply bg-blue-600
+}
+
+.btn--blue:focus {
+    @apply border-white;
+}
+
+
 .bg-quarter-oval {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 615 483' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M614.355 483C614.355 0 614.855 0 0.855469 0V483H614.355Z' fill='%2300AFFA'/%3E%3C/svg%3E%0A");
 }
@@ -57,6 +70,9 @@ button:active {
     background-image: url("data:image/svg+xml,%3Csvg width='20px' height='20px' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='dots' fill='%23004F71'%3E%3Ccircle id='Oval-377-Copy-9' cx='3' cy='3' r='3'%3E%3C/circle%3E%3Ccircle id='Oval-377-Copy-14' cx='13' cy='13' r='3'%3E%3C/circle%3E%3C/g%3E%3C/svg%3E%0A");
 }
 
+.bg-polka-dots--orange {
+    background-image: url("data:image/svg+xml,%3Csvg width='20px' height='20px' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='dots' fill='%23946508'%3E%3Ccircle id='Oval-377-Copy-9' cx='3' cy='3' r='3'%3E%3C/circle%3E%3Ccircle id='Oval-377-Copy-14' cx='13' cy='13' r='3'%3E%3C/circle%3E%3C/g%3E%3C/svg%3E%0A");
+}
 
 .bg-polka-dots--title {
     @apply w-24 h-24;

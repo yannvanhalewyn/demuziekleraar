@@ -5,6 +5,7 @@ import Header from "../components/header";
 import Banner from "../components/banner";
 import Lessons from "../components/lessons";
 import Pricing from "../components/pricing";
+import Contact from "../components/contact";
 
 export async function getStaticProps() {
   return {
@@ -34,6 +35,7 @@ export default function Home(props) {
       <Banner {...props.banner}/>
       <Lessons {...props.lessons}/>
       <Pricing {...props.pricing}/>
+      <Contact/>
     </React.Fragment>
   )
 }
