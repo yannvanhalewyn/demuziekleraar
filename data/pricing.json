@@ -1,0 +1,18 @@
+{
+  "pricingModels": [
+    {
+      "name": "Groepsles",
+      "location": "Thuis",
+      "priceChildren": "25,-",
+      "priceAdults": "50,-",
+      "priceSubtitle": "/p.p. 30 minuten",
+      "discount": "2 of meer kinderen in huis? **50,-**",
+      "features": [
+        {
+          "name": "**groepsles**"
+        }
+      ]
+    },
+    {}
+  ]
+}
