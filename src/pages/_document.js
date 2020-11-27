@@ -32,7 +32,7 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
 
-          <meta http-equiv="x-ua-compatible" content="ie=edge" />
+          <meta httpEquiv="x-ua-compatible" content="ie=edge" />
 
           <link
             rel="apple-touch-icon"
