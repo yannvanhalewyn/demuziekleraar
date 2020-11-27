@@ -7,7 +7,7 @@ const Lesson = (lesson, { i }) => {
   return (
     <div
       key={i}
-      className={`lg:flex lg:justify-between ${
+      className={`gsap-scroll-trigger lg:flex lg:justify-between ${
         flip ? "lg:flex-row-reverse" : ""
       } lg:items-stretch py-10 lg:py-16`}
     >
@@ -15,16 +15,16 @@ const Lesson = (lesson, { i }) => {
         <div className="absolute bg-polka-dots bg-polka-dots--title mt-4 bg-repeat"></div>
 
         <div className="relative lg:flex lg:flex-col lg:justify-between lg:h-full">
-          <h2 className="heading-2 font-extrabold text-gray-700 pl-4 border-l-8 border-orange-500">
+          <h2 className="gsap-scroll-appear-left heading-2 font-extrabold text-gray-700 pl-4 border-l-8 border-orange-500">
             {lesson.name}
           </h2>
 
           <ReactMarkdown
-            className="py-8 text-gray-800 leading-relaxed tracking-wider"
+            className="gsap-scroll-appear-left mt-16 text-gray-800 leading-relaxed tracking-wider"
             children={lesson.description}
           />
 
-          <div className="text-center">
+          <div className="gsap-scroll-appear-left mt-16 text-center">
             <button className="btn btn--s border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white">
               Lees meer
             </button>
@@ -32,7 +32,7 @@ const Lesson = (lesson, { i }) => {
         </div>
       </div>
 
-      <div className="flex-1 lg:max-w-md mt-10 lg:mt-0">
+      <div className="gsap-scroll-appear-right flex-1 lg:max-w-md mt-10 lg:mt-0">
         <div
           className="h-64 sm:h-96 md:h-112 lg:h-full img-frame border-blue-500"
           style={{ backgroundImage: `url('${lesson.image}')` }}
@@ -47,7 +47,7 @@ const Teacher = ({ teacher, i }) => {
 
   return (
     <div
-      className={`lg:flex lg:justify-between lg:items-stretch ${
+      className={`gsap-scroll-appear-bottom lg:flex lg:justify-between lg:items-stretch ${
         flip ? "lg:flex-row-reverse" : ""
       } mt-4 lg:mt-8 rounded-xl overflow-hidden shadow-xl bg-gray-100`}
     >
@@ -101,7 +101,9 @@ export default function Lessons({ lessonGroups }) {
             {lessonGroup.lessons.map((lesson, i) =>
               Lesson(lesson, { i })
             )}
-            <Teacher i={i} teacher={lessonGroup.teacher} />
+            <div className="gsap-scroll-trigger">
+              <Teacher i={i} teacher={lessonGroup.teacher} />
+            </div>
           </div>
         );
       })}

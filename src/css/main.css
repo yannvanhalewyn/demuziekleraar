@@ -28,6 +28,9 @@ button:active {
 .btn {
     @apply px-8 py-4 font-bold rounded-md
 }
+.btn:focus {
+    @apply border-white;
+}
 
 .btn--s {
     @apply py-2
@@ -41,10 +44,6 @@ button:active {
     @apply bg-red-600
 }
 
-.btn--red:focus {
-    @apply border-white;
-}
-
 .btn--blue {
     @apply bg-blue-500 text-white
 }
@@ -53,10 +52,13 @@ button:active {
     @apply bg-blue-600
 }
 
-.btn--blue:focus {
-    @apply border-white;
+.btn--orange {
+    @apply bg-orange-500 text-white
 }
 
+.btn--orange:hover {
+    @apply bg-orange-600
+}
 
 .bg-quarter-oval {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 615 483' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M614.355 483C614.355 0 614.855 0 0.855469 0V483H614.355Z' fill='%2300AFFA'/%3E%3C/svg%3E%0A");

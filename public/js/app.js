@@ -20,7 +20,7 @@ const each = (coll, f) => {
 document.addEventListener("DOMContentLoaded", () => {
   // Smooth scroll navigation
   document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener("click", (e) => {
+    link.addEventListener("click", e => {
       const id = e.target.getAttribute("href");
       const target = document.querySelector(id);
 
@@ -40,11 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setClass(childrenLabel, "pricing-toggle__label--active", !e.target.checked);
     setClass(adultLabel, "pricing-toggle__label--active", e.target.checked);
-    each(childrenPrices, (p) => setClass(p, "hidden", e.target.checked));
-    each(adultPrices, (p) => setClass(p, "hidden", !e.target.checked));
+    each(childrenPrices, p => setClass(p, "hidden", e.target.checked));
+    each(adultPrices, p => setClass(p, "hidden", !e.target.checked));
   });
 
-  document.getElementById("js-contact-form").addEventListener("submit", (e) => {
+  document.getElementById("js-contact-form").addEventListener("submit", e => {
     e.preventDefault();
     let formData = new FormData(e.target);
     console.log(new URLSearchParams(formData).toString());
@@ -54,10 +54,57 @@ document.addEventListener("DOMContentLoaded", () => {
       body: new URLSearchParams(formData).toString(),
     })
       .then(() => (e.target.innerHTML = "Success!"))
-      .catch((error) => {
+      .catch(error => {
         e.target.innerHTML += "Error!";
         console.error(error);
       });
   });
-});
 
+  // Setup animations
+  gsap.registerPlugin(ScrollTrigger);
+
+  const heroTimeline = gsap.timeline();
+
+  heroTimeline.from(".gsap-hero-cta", {
+    opacity: 0,
+    x: -50,
+    stagger: 0.4,
+    duration: 1.5,
+    ease: Power4.easeOut,
+  });
+
+  heroTimeline.from(".gsap-hero-image", {
+      opacity: 0,
+      y: 50,
+      x: 100,
+      rotation: 30,
+      stagger: 0.2,
+      duration: 0.8,
+      ease: Power4.easeOut,
+    }, "-=1.5");
+
+  heroTimeline.from(".gsap-hero-promo", {
+      opacity: 0,
+      y: 50,
+      duration: 1.5,
+      ease: Power4.easeOut,
+    }, "-=1.2");
+
+  each(document.getElementsByClassName("gsap-scroll-trigger"), trigger => {
+    const appear = (params => ({
+      scrollTrigger: {
+        trigger: trigger,
+        start: "top 80%",
+      },
+      opacity: 0,
+      stagger: 0.3,
+      duration: 1,
+      ease: Power4.easeOUt,
+      ...params
+    }))
+
+    gsap.from(trigger.querySelectorAll(".gsap-scroll-appear-left"), appear({x: -50}));
+    gsap.from(trigger.querySelectorAll(".gsap-scroll-appear-right"), appear({x: 50}));
+    gsap.from(trigger.querySelectorAll(".gsap-scroll-appear-bottom"), appear({y: 50}));
+  });
+});

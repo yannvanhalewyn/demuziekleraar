@@ -10,15 +10,15 @@ export default function Banner({ title, subtitle, images, promo }) {
         <div className="relative flex flex-col md:flex-row m-container">
           <div className="flex-1 md:pr-12 lg:pr-40 py-12 md:py-24 lg:py-32 text-white tracking-wide">
 
-            <h1 className="text-2xl md:text-3xl leading-9 md:leading-11 font-extrabold strong-blue-800">
+            <h1 className="gsap-hero-cta text-2xl md:text-3xl leading-9 md:leading-12 font-extrabold strong-blue-800">
               <ReactMarkdown children={title}/>
             </h1>
 
-            <h2 className="mt-8 leading-relaxed" >
+            <h2 className="gsap-hero-cta mt-6 leading-7 md:leading-8" >
               <ReactMarkdown children={subtitle}/>
             </h2>
 
-            <div className="text-center">
+            <div className="gsap-hero-cta text-center">
               <SignupButton className="mt-12 btn--red shadow-lg" />
             </div>
           </div>
@@ -26,15 +26,15 @@ export default function Banner({ title, subtitle, images, promo }) {
           <div className="flex-1 lg:-mx-12 md:mt-0">
             <div className="relative flex-grow mt-16 md:mt-24">
               <div
-                className="absolute sm:z-30 md:z-0 lg:z-30 w-40 h-40 sm:w-48 sm:h-48 lg:w-48 lg:h-48 img-frame hero-image-1 border-blue-500"
+                className="gsap-hero-image absolute sm:z-30 md:z-0 lg:z-30 w-40 h-40 sm:w-48 sm:h-48 lg:w-48 lg:h-48 img-frame hero-image-1 border-blue-500"
                 style={{ backgroundImage: `url('${images?.image1 || ''}')` }}
               ></div>
               <div
-                className="relative sm:z-20 md:z-0 lg:z-20 w-48 h-48 sm:w-64 sm:h-64 lg:w-84 lg:h-84 mx-auto img-frame border-blue-500"
+                className="gsap-hero-image relative sm:z-20 md:z-0 lg:z-20 w-48 h-48 sm:w-64 sm:h-64 lg:w-84 lg:h-84 mx-auto img-frame border-blue-500"
                 style={{ backgroundImage: `url('${images?.image2 || ''}')` }}
               ></div>
               <div
-                className="absolute sm:z-30 md:z-0 lg:z-30 w-40 h-40 sm:w-48 sm:h-48 lg:w-48 lg:h-48 img-frame hero-image-2 border-blue-500"
+                className="gsap-hero-image absolute sm:z-30 md:z-0 lg:z-30 w-40 h-40 sm:w-48 sm:h-48 lg:w-48 lg:h-48 img-frame hero-image-2 border-blue-500"
                 style={{ backgroundImage: `url('${images?.image3 || ''}')` }}
               ></div>
             </div>
@@ -56,13 +56,13 @@ export default function Banner({ title, subtitle, images, promo }) {
             </div>
 
             <div className="relative md:max-w-md lg:ml-auto">
-              <h3 className="heading-2 md:text-right lg:text-left text-white">
+              <h3 className="gsap-hero-promo heading-2 md:text-right lg:text-left text-white">
                 {promo?.title}
               </h3>
-              <div className="mt-8 text-blue-100 leading-relaxed tracking-wide" >
+              <div className="gsap-hero-promo mt-8 text-blue-100 leading-relaxed tracking-wide" >
                 <ReactMarkdown children={promo?.description}/>
               </div>
-              <div className="mt-12 text-center">
+              <div className="gsap-hero-promo mt-12 text-center">
                 <button className="btn btn--s bg-white text-blue-700 hover:bg-blue-700 border-white border-2 hover:text-white">
                   Lees meer
                 </button>
@@ -70,7 +70,7 @@ export default function Banner({ title, subtitle, images, promo }) {
             </div>
           </div>
 
-          <div className="flex-1 w-full mt-12 lg:mt-0 md:max-w-md">
+          <div className="gsap-hero-promo flex-1 w-full mt-12 lg:mt-0 md:max-w-md">
             <div
               className="h-72 sm:h-112 md:h-72 lg:h-full mx-auto lg:mx-0 img-frame border-white"
               style={{ backgroundImage: `url('${promo?.image || ''}')` }}

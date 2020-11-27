@@ -9,17 +9,17 @@ export default function Pricing({ pricingModels }) {
 
   return (
     <div id="pricing" className="bg-blue-700 text-white">
-      <div className="m-container py-24">
+      <div className="gsap-scroll-trigger m-container py-24">
         <div className="relative">
           <div className="absolute bg-polka-dots--blue bg-polka-dots--title w-24 h-24 mt-4 bg-repeat"></div>
 
-          <h2 className="relative heading-2 font-extrabold text-white pl-4 border-l-8 border-red-600">
+          <h2 className="gsap-scroll-appear-left relative heading-2 font-extrabold text-white pl-4 border-l-8 border-red-600">
             Tarieven
           </h2>
         </div>
 
         <div className="mt-16">
-          <div className="flex items-center text-blue-300 font-semibold">
+          <div className="gsap-scroll-appear-left flex items-center text-blue-300 font-semibold">
             <label
               htmlFor="pricing-toggle"
               id="js-pricing-label-children"
@@ -52,7 +52,7 @@ export default function Pricing({ pricingModels }) {
             </label>
           </div>
 
-          <div className="mt-6 lg:flex lg:bg-blue-600 lg:rounded-xl lg:overflow-hidden lg:shadow-xl">
+          <div className="gsap-scroll-appear-bottom mt-6 lg:flex lg:bg-blue-600 lg:rounded-xl lg:overflow-hidden lg:shadow-xl">
             {pricingModels?.map((pricingModel, i) => {
               return (
                 <div
@@ -106,18 +106,12 @@ export default function Pricing({ pricingModels }) {
                           €
                         </span>
                         {/* 'toggled' is used by admin preview, vanilla js on homepage */}
-                        <span
-                          id="js-price-children"
-                          className="font-bold text-5xl"
-                        >
+                        <span className="js-price-children font-bold text-5xl" >
                           {toggled
                             ? pricingModel.priceAdults
                             : pricingModel.priceChildren}
                         </span>
-                        <span
-                          id="js-price-adults"
-                          className="hidden font-bold text-5xl"
-                        >
+                        <span className="js-price-adults hidden font-bold text-5xl" >
                           {pricingModel.priceAdults}
                         </span>
                       </div>
@@ -126,7 +120,7 @@ export default function Pricing({ pricingModels }) {
                       </span>
                     </div>
 
-                    <SignupButton className="shadow-md mt-12 bg-orange-500 hover:bg-orange-600" />
+                    <SignupButton className="shadow-md mt-12 btn--orange" />
 
                     <ReactMarkdown
                       className="h-8 mt-4 text-blue-300 strong-white"
@@ -149,7 +143,7 @@ export default function Pricing({ pricingModels }) {
                             </svg>
                           </div>
                           <ReactMarkdown
-                            className="ml-4 strong-orange-500"
+                            className="gsap-scrolltrigger ml-4 strong-orange-500"
                             children={feature.name}
                           />
                         </div>
