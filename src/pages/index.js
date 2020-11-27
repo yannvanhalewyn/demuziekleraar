@@ -13,7 +13,7 @@ export async function getStaticProps() {
       banner: readData("banner"),
       lessons: readData("lessons"),
       pricing: readData("pricing"),
-      socials: readData("socials"),
+      contact: readData("contact"),
       seo: readData("seo")
     }
   }
@@ -37,7 +37,7 @@ export default function Home(props) {
       <Banner {...props.banner}/>
       <Lessons {...props.lessons}/>
       <Pricing {...props.pricing}/>
-      <Contact/>
+      <Contact {...props.contact}/>
     </React.Fragment>
   )
 }

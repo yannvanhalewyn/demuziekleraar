@@ -44,14 +44,6 @@ const TextInputGroup = ({ className, label, type, minLength, id, name }) => {
 };
 
 const Contact = (props) => {
-  props = {
-    email: "manuelreijn@gmail.com",
-    phoneNumber: "00 31 6 48 13 34 21‬",
-    body:
-      "Klinkt dit als muziek in je oren? Stuur een berichtje en we nemen " +
-      "contact met je op!",
-  };
-
   return (
     <div className="gsap-scroll-trigger bg-blue-800">
 
@@ -66,7 +58,7 @@ const Contact = (props) => {
           </div>
 
           <p className="gsap-scroll-appear-left mt-16 text-blue-200 leading-relaxed tracking-wider">
-            {props.body}
+            {props.message}
           </p>
 
           <ul className="mt-8 md:mt-12">

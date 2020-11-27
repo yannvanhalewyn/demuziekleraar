@@ -14,6 +14,7 @@ import Header from "../components/header";
 import Banner from "../components/banner";
 import Lessons from "../components/lessons";
 import Pricing from "../components/pricing";
+import Contact from "../components/contact";
 
 const imageField = (label, name) => {
   return {
@@ -51,7 +52,7 @@ const defaultLabelProps = (key, default_) => {
 const defaultNameProps = default_ => defaultLabelProps("name", default_);
 
 const bannerFormConfig = {
-  id: "2-banner",
+  id: "3-banner",
   label: "Banner",
   fileName: "data/banner.json",
   fields: [
@@ -89,7 +90,7 @@ const lessonGroupProps = {
 };
 
 const lessonsFormConfig = {
-  id: "1-lessons",
+  id: "2-lessons",
   label: "Lessen",
   fileName: "data/lessons.json",
   fields: [
@@ -110,7 +111,7 @@ const lessonsFormConfig = {
 };
 
 const pricingFormConfig = {
-  id: "0-pricing",
+  id: "1-pricing",
   label: "Tarieven",
   fileName: "data/pricing.json",
   fields: [
@@ -125,6 +126,19 @@ const pricingFormConfig = {
         richField("Kenmerk", "name")
       ]),
     ])
+  ]
+}
+
+const contactFormConfig = {
+  id: "0-pricing",
+  label: "Contact & Socials",
+  fileName: "data/contact.json",
+  fields: [
+    textField("Bericht", "message"),
+    textField("Telefoon", "phoneNumber"),
+    textField("Email", "email"),
+    textField("Youtube", "youtubeUrl"),
+    textField("Instagram", "instagramUrl")
   ]
 }
 
@@ -146,6 +160,11 @@ const PricingForm = (props) => {
   return <Pricing {...pricing} />;
 };
 
+const ContactForm = (props) => {
+  const [contact, form] = useGithubJsonForm(contactFormConfig);
+  usePlugin(form);
+  return <Contact {...contact} />;
+};
 
 const TinaApp = () => {
   const currentUser = useCurrentUser();
@@ -167,6 +186,7 @@ const TinaApp = () => {
       <BannerForm />
       <LessonsForm />
       <PricingForm />
+      <ContactForm />
     </TinaProvider>
   );
 };
