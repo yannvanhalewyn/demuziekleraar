@@ -53,19 +53,19 @@ const Contact = (props) => {
   };
 
   return (
-    <div className="bg-blue-800">
+    <div className="gsap-scroll-trigger bg-blue-800">
 
       <div id="contact" className="m-container py-24 lg:flex">
 
         <div className="lg:pr-12 lg:flex-1 lg:flex lg:flex-col lg:justify-between">
           <div className="relative">
             <div className="absolute bg-polka-dots--blue-900 bg-polka-dots--title w-24 h-24 mt-4 bg-repeat"></div>
-            <h2 className="relative heading-2 font-extrabold text-white pl-4 border-l-8 border-red-500">
+            <h2 className="gsap-scroll-appear-left relative heading-2 font-extrabold text-white pl-4 border-l-8 border-red-500">
               Contact
             </h2>
           </div>
 
-          <p className="mt-16 text-blue-200 leading-relaxed tracking-wider">
+          <p className="gsap-scroll-appear-left mt-16 text-blue-200 leading-relaxed tracking-wider">
             {props.body}
           </p>
 
@@ -75,7 +75,7 @@ const Contact = (props) => {
               [`mailto:${props.email}`, props.email, MailIcon],
             ].map(([link, text, Icon]) => {
               return (
-                <li key={text} className="mt-6 md:mt-8">
+                <li key={text} className="gsap-scroll-appear-left mt-6 md:mt-8">
                   <a
                     className="group flex w-72 items-center p-4 rounded-lg bg-blue-700 shadow-inner hover:bg-blue-900 hover:shadow"
                     href={link}
@@ -96,7 +96,7 @@ const Contact = (props) => {
 
         <div className="mt-12 lg:mt-0 lg:flex-1">
           <form
-            className="bg-white p-6 sm:p-8 md:p-10 rounded-md shadow-xl"
+            className="gsap-scroll-appear-right-delay-1 bg-white p-6 sm:p-8 md:p-10 rounded-md shadow-xl"
             id="js-contact-form"
             name="contact"
             method="POST"

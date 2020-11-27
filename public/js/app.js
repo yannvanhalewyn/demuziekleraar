@@ -103,8 +103,12 @@ document.addEventListener("DOMContentLoaded", () => {
       ...params
     }))
 
-    gsap.from(trigger.querySelectorAll(".gsap-scroll-appear-left"), appear({x: -50}));
-    gsap.from(trigger.querySelectorAll(".gsap-scroll-appear-right"), appear({x: 50}));
-    gsap.from(trigger.querySelectorAll(".gsap-scroll-appear-bottom"), appear({y: 50}));
+    gsap.from(trigger.querySelectorAll(".gsap-scroll-appear-left"), appear({x: -75}));
+    gsap.from(trigger.querySelectorAll(".gsap-scroll-appear-right"), appear({x: 75}));
+    gsap.from(trigger.querySelectorAll(".gsap-scroll-appear-bottom"), appear({y: 75}));
+    gsap.from(trigger.querySelectorAll(".gsap-scroll-appear-right-delay-1"), appear({
+      x: 75,
+      delay: 1.5
+    }));
   });
 });
