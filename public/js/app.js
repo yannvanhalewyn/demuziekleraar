@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("js-contact-form").addEventListener("submit", e => {
     e.preventDefault();
     let formData = new FormData(e.target);
-    console.log(new URLSearchParams(formData).toString());
+
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },

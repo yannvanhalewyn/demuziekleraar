@@ -1,5 +1,21 @@
 const BRANCH = process.env.GIT_BRANCH;
 
+function b64Encode(str) {
+  return btoa(
+    encodeURIComponent(str)
+      .replace(/%([0-9A-F]{2})/g, (_, s) => String.fromCharCode("0x" + s))
+  );
+}
+
+const b64Decode = (str) => {
+  return decodeURIComponent(
+    atob(str)
+      .split("")
+      .map(c => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+      .join("")
+  );
+};
+
 const request = async ({ path, headers, method, body }) => {
   const url = `https://demuziekleraar.netlify.app/.netlify/git/github/${path}`;
 
@@ -22,7 +38,7 @@ const fetchFile = async (
   });
 
   if (decoded && response.content) {
-    response.content = atob(response.content);
+    response.content = b64Decode(response.content);
   }
 
   return response;
@@ -41,7 +57,7 @@ const commit = async (
     method: "PUT",
     body: {
       message,
-      content: encode ? btoa(fileContents) : fileContents,
+      content: encode ? b64Encode(fileContents) : fileContents,
       branch,
       sha,
     },
