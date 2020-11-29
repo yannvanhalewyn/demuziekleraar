@@ -107,12 +107,20 @@ document.addEventListener("DOMContentLoaded", () => {
       duration: 1,
       ease: Power4.easeOUt,
       ...params
-    }))
+    }));
 
-    gsap.from(trigger.querySelectorAll(".gsap-scroll-appear-left"), appear({x: -75}));
-    gsap.from(trigger.querySelectorAll(".gsap-scroll-appear-right"), appear({x: 75}));
-    gsap.from(trigger.querySelectorAll(".gsap-scroll-appear-bottom"), appear({y: 75}));
-    gsap.from(trigger.querySelectorAll(".gsap-scroll-appear-right-delay-1"), appear({
+    const animateTargetsIfAny = (className, animationParams) => {
+      const children = trigger.querySelectorAll(className);
+
+      if (children.length > 0) {
+        gsap.from(children, animationParams);
+      }
+    }
+
+    animateTargetsIfAny(".gsap-scroll-appear-left", appear({x: -75}));
+    animateTargetsIfAny(".gsap-scroll-appear-right", appear({x: 75}));
+    animateTargetsIfAny(".gsap-scroll-appear-bottom", appear({y: 75}));
+    animateTargetsIfAny(".gsap-scroll-appear-right-delay-1", appear({
       x: 75,
       delay: 1
     }));
