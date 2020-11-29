@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (scrollTarget.id === "contact") {
           setTimeout(() => {
             document.getElementById("name").focus();
-          }, 1500);
+          }, 1000);
         }
       }
     });

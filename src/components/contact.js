@@ -14,6 +14,24 @@ const MailIcon = ({ className }) => {
   );
 };
 
+const YoutubeIcon = ({ className }) => {
+  return (
+    <svg className={className} viewBox="0 0 512 512">
+      <path d="M508.6 148.8c0-45-33.1-81.2-74-81.2C379.2 65 322.7 64 265 64h-18c-57.6 0-114.2 1-169.6 3.6C36.6 67.6 3.5 104 3.5 149 1 184.6-.1 220.2 0 255.8c-.1 35.6 1 71.2 3.4 106.9 0 45 33.1 81.5 73.9 81.5 58.2 2.7 117.9 3.9 178.6 3.8 60.8.2 120.3-1 178.6-3.8 40.9 0 74-36.5 74-81.5 2.4-35.7 3.5-71.3 3.4-107 .2-35.6-.9-71.2-3.3-106.9zM207 353.9V157.4l145 98.2-145 98.3z"/>
+    </svg>
+  );
+};
+
+const InstagramIcon = ({ className }) => {
+  return (
+
+    <svg className={className} viewBox="0 0 600 600" >
+        <path d="M300 44c-69.526 0-78.244.295-105.549 1.54-27.248 1.244-45.858 5.571-62.142 11.9-16.834 6.542-31.11 15.296-45.342 29.528-14.232 14.231-22.986 28.508-29.528 45.342-6.329 16.283-10.656 34.893-11.9 62.141C44.295 221.756 44 230.474 44 300c0 69.524.294 78.242 1.54 105.547 1.243 27.248 5.57 45.858 11.9 62.141 6.541 16.834 15.295 31.11 29.527 45.344 14.231 14.231 28.508 22.985 45.342 29.527 16.284 6.328 34.894 10.656 62.142 11.899 27.305 1.245 36.023 1.54 105.549 1.54 69.524 0 78.242-.295 105.547-1.54 27.248-1.243 45.858-5.571 62.141-11.899 16.834-6.542 31.11-15.296 45.344-29.527 14.231-14.233 22.985-28.51 29.527-45.344 6.328-16.283 10.656-34.893 11.899-62.14 1.245-27.306 1.54-36.024 1.54-105.548 0-69.526-.295-78.244-1.54-105.549-1.243-27.248-5.571-45.858-11.899-62.141-6.542-16.834-15.296-31.11-29.527-45.342-14.233-14.232-28.51-22.986-45.344-29.528-16.283-6.329-34.893-10.656-62.14-11.9C378.241 44.296 369.523 44 300 44zm0 46.127c68.354 0 76.45.26 103.445 1.492 24.96 1.139 38.514 5.31 47.535 8.814 11.95 4.644 20.477 10.192 29.435 19.15 8.959 8.958 14.506 17.487 19.15 29.435 3.506 9.02 7.676 22.576 8.815 47.535 1.231 26.995 1.492 35.092 1.492 103.447 0 68.354-.26 76.45-1.492 103.445-1.139 24.96-5.31 38.514-8.815 47.535-4.644 11.95-10.191 20.477-19.15 29.435-8.958 8.959-17.486 14.506-29.435 19.15-9.02 3.506-22.576 7.676-47.535 8.814-26.99 1.232-35.086 1.493-103.445 1.493-68.36 0-76.455-.26-103.447-1.493-24.96-1.138-38.514-5.308-47.535-8.814-11.95-4.644-20.477-10.191-29.436-19.15-8.958-8.958-14.506-17.486-19.149-29.435-3.506-9.02-7.676-22.576-8.815-47.535-1.232-26.994-1.492-35.091-1.492-103.445 0-68.355.26-76.452 1.492-103.447 1.139-24.96 5.31-38.514 8.815-47.535 4.643-11.948 10.191-20.477 19.15-29.435 8.958-8.958 17.486-14.506 29.435-19.15 9.02-3.505 22.576-7.675 47.535-8.814 26.995-1.232 35.092-1.492 103.447-1.492z"/>
+        <path d="M300 385.332c-47.13 0-85.334-38.205-85.334-85.332 0-47.13 38.205-85.334 85.334-85.334 47.127 0 85.332 38.205 85.332 85.334 0 47.127-38.205 85.332-85.332 85.332zm0-216.792c-72.604 0-131.46 58.856-131.46 131.46 0 72.602 58.856 131.458 131.46 131.458 72.602 0 131.458-58.856 131.458-131.458 0-72.604-58.856-131.46-131.458-131.46zM467.372 163.346c0 16.967-13.754 30.72-30.72 30.72s-30.72-13.753-30.72-30.72c0-16.966 13.754-30.719 30.72-30.719s30.72 13.753 30.72 30.72z"/>
+    </svg>
+  );
+};
+
 const TextInputGroup = ({ className, label, type, minLength, id, name }) => {
   const inputClasses = "text-gray-700 border-b border-gray-400 bg-transparent outline-none placeholder-blue-300 placeholder-opacity-30 focus:border-orange-600"
 
@@ -61,13 +79,13 @@ const Contact = (props) => {
             {props.message}
           </p>
 
-          <ul className="mt-8 md:mt-12">
+          <ul className="mt-12">
             {[
               [`tel:${props.phoneNumber}`, props.phoneNumber, PhoneIcon],
               [`mailto:${props.email}`, props.email, MailIcon],
-            ].map(([link, text, Icon]) => {
+            ].map(([link, text, Icon], i) => {
               return (
-                <li key={text} className="gsap-scroll-appear-left mt-6 md:mt-8">
+                <li key={text} className={`gsap-scroll-appear-left ${i === 0 ? "" : "mt-6 md:mt-8"}`}>
                   <a
                     className="group flex w-72 items-center p-4 rounded-lg bg-blue-700 shadow-inner hover:bg-blue-900 hover:shadow"
                     href={link}
@@ -84,11 +102,25 @@ const Contact = (props) => {
               );
             })}
           </ul>
+
+          <ul className="mt-8 flex gsap-scroll-appear-left">
+            <li>
+              <a className="block p-4 rounded-2xl transition duration-300 hover:bg-blue-900" target="_blank" href={props.youtubeUrl}>
+                <YoutubeIcon className="w-8 h-8 fill-current text-blue-200"/>
+              </a>
+            </li>
+
+            <li>
+              <a className="block p-4 rounded-2xl transition duration-300 hover:bg-blue-900" target="_blank" href={props.instagramUrl}>
+                <InstagramIcon className="w-8 h-8 fill-current text-blue-200"/>
+              </a>
+            </li>
+          </ul>
         </div>
 
-        <div className="mt-12 lg:mt-0 lg:flex-1">
+        <div className="mt-8 lg:mt-0 lg:flex-1">
           <form
-            className="gsap-scroll-appear-right-delay-1 bg-white p-6 sm:p-8 md:p-10 rounded-md shadow-xl"
+            className="gsap-scroll-appear-right-delay-1 p-6 sm:p-8 md:p-10 lg:h-full lg:flex lg:flex-col lg:justify-between bg-white rounded-md shadow-xl"
             id="js-contact-form"
             name="contact"
             method="POST"
