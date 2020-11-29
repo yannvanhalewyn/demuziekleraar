@@ -64,8 +64,7 @@ const TextInputGroup = ({ className, label, type, minLength, id, name }) => {
 const Contact = (props) => {
   return (
     <div className="gsap-scroll-trigger bg-blue-800">
-
-      <div id="contact" className="m-container py-24 lg:flex">
+      <div id="contact" className="m-container py-12 md:py-24 lg:flex">
 
         <div className="lg:pr-12 lg:flex-1 lg:flex lg:flex-col lg:justify-between">
           <div className="relative">

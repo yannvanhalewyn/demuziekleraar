@@ -178,6 +178,10 @@ button:active {
     clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
 }
 
+.clip-triangle--reverse {
+    clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
+}
+
 @keyframes grow {
     50% {
         transform: scale(1.3);

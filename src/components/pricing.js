@@ -9,7 +9,7 @@ export default function Pricing({ pricingModels }) {
 
   return (
     <div id="pricing" className="bg-blue-700 text-white">
-      <div className="gsap-scroll-trigger m-container py-24">
+      <div className="gsap-scroll-trigger m-container pt-24 pb-12">
         <div className="relative">
           <div className="absolute bg-polka-dots--blue bg-polka-dots--title w-24 h-24 mt-4 bg-repeat"></div>
 
@@ -52,7 +52,8 @@ export default function Pricing({ pricingModels }) {
             </label>
           </div>
 
-          <div className="gsap-scroll-appear-bottom mt-6 lg:flex lg:bg-blue-600 lg:rounded-xl lg:overflow-hidden lg:shadow-xl">
+          {/* relative z-10 in order to draw above triangle clip path */}
+          <div className="relative z-10 gsap-scroll-appear-bottom mt-6 lg:flex lg:bg-blue-600 lg:rounded-xl lg:overflow-hidden lg:shadow-xl">
             {pricingModels?.map((pricingModel, i) => {
               return (
                 <div
@@ -155,6 +156,11 @@ export default function Pricing({ pricingModels }) {
             })}
           </div>
         </div>
+      </div>
+
+      {/* Bottom triangle clip path */}
+      <div className="relative">
+        <div className="absolute bottom-0 inset-x-0 h-32 md:h-48 clip-triangle--reverse bg-blue-800"></div>
       </div>
     </div>
   );
