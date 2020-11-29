@@ -26,7 +26,7 @@ const TextInputGroup = ({ className, label, type, minLength, id, name }) => {
        <textarea
          className={`w-full mt-1 py-2 ${inputClasses}`}
          id={id}
-         name={name}
+         name={id}
          rows="4"
        />
        :
@@ -34,7 +34,7 @@ const TextInputGroup = ({ className, label, type, minLength, id, name }) => {
         className={`w-full mt-1 py-2 ${inputClasses}`}
         id={id}
         type={type}
-        name={name}
+        name={id}
         minLength={minLength}
         required
       />
