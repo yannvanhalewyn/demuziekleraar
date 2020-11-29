@@ -86,7 +86,7 @@ const Contact = (props) => {
               return (
                 <li key={text} className={`gsap-scroll-appear-left ${i === 0 ? "" : "mt-6 md:mt-8"}`}>
                   <a
-                    className="group flex w-72 items-center p-4 rounded-lg bg-blue-700 shadow-inner hover:bg-blue-900 hover:shadow"
+                    className="group flex w-72 items-center p-4 rounded-lg bg-blue-700 shadow-inner transition duration-200 hover:bg-blue-900 hover:shadow"
                     href={link}
                   >
                     <Icon
@@ -104,13 +104,13 @@ const Contact = (props) => {
 
           <ul className="mt-8 flex gsap-scroll-appear-left">
             <li>
-              <a className="block p-4 rounded-2xl transition duration-300 hover:bg-blue-900" target="_blank" href={props.youtubeUrl}>
+              <a className="block p-4 rounded-2xl transition duration-200 hover:bg-blue-900" target="_blank" href={props.youtubeUrl}>
                 <YoutubeIcon className="w-8 h-8 fill-current text-blue-200"/>
               </a>
             </li>
 
             <li>
-              <a className="block p-4 rounded-2xl transition duration-300 hover:bg-blue-900" target="_blank" href={props.instagramUrl}>
+              <a className="block p-4 rounded-2xl transition duration-200 hover:bg-blue-900" target="_blank" href={props.instagramUrl}>
                 <InstagramIcon className="w-8 h-8 fill-current text-blue-200"/>
               </a>
             </li>
