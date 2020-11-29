@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.from(trigger.querySelectorAll(".gsap-scroll-appear-bottom"), appear({y: 75}));
     gsap.from(trigger.querySelectorAll(".gsap-scroll-appear-right-delay-1"), appear({
       x: 75,
-      delay: 1.5
+      delay: 1
     }));
   });
 });

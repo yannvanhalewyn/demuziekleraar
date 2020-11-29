@@ -33,7 +33,7 @@ export default function Home(props) {
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js" />
       </Head>
-      <Header/>
+      <Header {...props.contact}/>
       <Banner {...props.banner}/>
       <Lessons {...props.lessons}/>
       <Pricing {...props.pricing}/>

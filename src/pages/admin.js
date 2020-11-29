@@ -142,29 +142,27 @@ const contactFormConfig = {
   ]
 }
 
-const BannerForm = (props) => {
-  const [banner, form] = useGithubJsonForm(bannerFormConfig);
-  usePlugin(form);
-  return <Banner {...banner} />;
-};
+const HomePreview = () => {
+  const [banner, bannerForm] = useGithubJsonForm(bannerFormConfig);
+  const [lessons, lessonsForm] = useGithubJsonForm(lessonsFormConfig);
+  const [pricing, pricingForm] = useGithubJsonForm(pricingFormConfig);
+  const [contact, contactForm] = useGithubJsonForm(contactFormConfig);
 
-const LessonsForm = (props) => {
-  const [lessons, form] = useGithubJsonForm(lessonsFormConfig);
-  usePlugin(form);
-  return <Lessons {...lessons} />;
-};
+  usePlugin(bannerForm);
+  usePlugin(lessonsForm);
+  usePlugin(pricingForm);
+  usePlugin(contactForm);
 
-const PricingForm = (props) => {
-  const [pricing, form] = useGithubJsonForm(pricingFormConfig);
-  usePlugin(form);
-  return <Pricing {...pricing} />;
-};
-
-const ContactForm = (props) => {
-  const [contact, form] = useGithubJsonForm(contactFormConfig);
-  usePlugin(form);
-  return <Contact {...contact} />;
-};
+  return (
+    <>
+      <Header {...contact} />
+      <Banner {...banner}/>
+      <Lessons {...lessons} />
+      <Pricing {...pricing}/>
+      <Contact {...contact}/>
+    </>
+  );
+}
 
 const TinaApp = () => {
   const currentUser = useCurrentUser();
@@ -180,13 +178,10 @@ const TinaApp = () => {
     media: mediaStore,
   });
 
+
   return (
     <TinaProvider cms={cms}>
-      <Header />
-      <BannerForm />
-      <LessonsForm />
-      <PricingForm />
-      <ContactForm />
+      <HomePreview/>
     </TinaProvider>
   );
 };

@@ -1,4 +1,4 @@
-export default function Components(props) {
+export default function Header(props) {
   return (
     <header className="flex flex-col md:flex-row justify-between items-center m-container">
       <div className="flex-1 hidden md:block">
@@ -25,7 +25,7 @@ export default function Components(props) {
 
       <div className="flex-1 text-right">
         <a
-          href="{props.youtubeURL}"
+          href={props.youtubeUrl}
           target="_blank"
           className="inline-block bg-gray-900 hover:bg-gray-800 mt-4 md:mt-0 px-4 py-2 text-white text-xs font-bold rounded-md "
         >
