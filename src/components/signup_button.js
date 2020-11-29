@@ -1,8 +1,8 @@
 import React from "react";
 
-export default ({className}) => {
+export default function SignupButton({className}) {
   return (
-    <button className={`btn group ${className}`}>
+    <a href="#contact" className={`btn group inline-block ${className}`}>
       <div className="flex items-center">
         <div className="group-hover:animation-spin group-hover:animation-duration-100 group-hover:animation-1">
 
@@ -15,6 +15,6 @@ export default ({className}) => {
           Meld je aan
         </span>
       </div>
-    </button>
+    </a>
   );
 }

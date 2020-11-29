@@ -21,12 +21,18 @@ document.addEventListener("DOMContentLoaded", () => {
   // Smooth scroll navigation
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener("click", e => {
-      const id = e.target.getAttribute("href");
-      const target = document.querySelector(id);
+      const id = e.currentTarget.getAttribute("href");
+      const scrollTarget = document.querySelector(id);
 
-      if (target) {
+      if (scrollTarget) {
         e.preventDefault();
-        target.scrollIntoView({ behavior: "smooth" });
+        scrollTarget.scrollIntoView({ behavior: "smooth" });
+
+        if (scrollTarget.id === "contact") {
+          setTimeout(() => {
+            document.getElementById("name").focus();
+          }, 1500);
+        }
       }
     });
   });
