@@ -39,41 +39,6 @@
           }
         ]
       }
-    },
-    {
-      "lessons": [
-        {
-          "description": "Altijd al willen **zingen**? Of kan je het al maar wil je het nog beter kunnen? Met deze zanglessen ga je **het zeker leren**! La la la, la lei li la lo, je leert het allemaal!",
-          "name": "Zangles",
-          "image": "media/les_zang.png"
-        }
-      ],
-      "teacher": {
-        "name": "Nienke Lohuis",
-        "image": "media/docent_nienke2.jpg",
-        "achievements": [
-          {
-            "description": "Winnaar **Sena Guitar Awards** 2006",
-            "icon": "media/trophy.svg"
-          },
-          {
-            "description": "Docent gitaar sinds **2006**",
-            "icon": "media/whiteboard.svg"
-          },
-          {
-            "icon": "media/graduation-hat.svg",
-            "description": "Afgestudeerd docent muziek **Rockacademie**"
-          },
-          {
-            "icon": "media/musical-notes.svg",
-            "description": "**Gitarist** Blue Marble / Tin Soldiers / ..."
-          },
-          {
-            "icon": "media/safety-hat.svg",
-            "description": "**Oprichter** de Muziekleraar sinds 2016"
-          }
-        ]
-      }
     }
   ]
 }
