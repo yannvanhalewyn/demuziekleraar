@@ -1,6 +1,7 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import PolkaTitle from "./polkaTitle";
+import SignupButton from "./signup_button";
 
 const Lesson = (lesson, { i }) => {
   const flip = i % 2 !== 0;
@@ -14,7 +15,7 @@ const Lesson = (lesson, { i }) => {
     >
       <div className="flex-1 lg:max-w-md lg:flex lg:flex-col lg:justify-between lg:h-full">
         <PolkaTitle>
-          <h2 className="gsap-scroll-appear-left heading-2 pl-4 font-extrabold text-gray-700 border-l-8 border-orange-500">
+          <h2 className="gsap-scroll-appear-left heading-2 pl-4 font-extrabold text-gray-700 border-l-8 border-red-500">
             {lesson.name}
           </h2>
         </PolkaTitle>
@@ -24,12 +25,9 @@ const Lesson = (lesson, { i }) => {
           children={lesson.description}
         />
 
-        <div className="gsap-scroll-appear-left mt-16 text-center">
-          <button className="btn btn--s border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white">
-            Lees meer
-          </button>
+        <div className="text-center">
+          <SignupButton className="gsap-scroll-appear-left mt-16 btn--red shadow-lg" />
         </div>
-
       </div>
 
       <div className="gsap-scroll-appear-right flex-1 lg:max-w-md mt-10 lg:mt-0">

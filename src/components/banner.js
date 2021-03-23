@@ -43,7 +43,8 @@ export default function Banner({ title, subtitle, images, promo }) {
       </div>
 
       <div className="bg-blue-700 md:-mt-24 lg:mt-0 py-20 sm:py-32 md:pt-0 lg:pb-24">
-        <div className="flex flex-col lg:flex-row-reverse items-center lg:items-stretch m-container">
+        <div className="flex flex-col lg:flex-row-reverse items-center lg:items-stretch m-container"
+             style={{minHeight: "350px"}}>
           <div className="flex-1">
             <div className="relative">
               <svg
@@ -61,11 +62,6 @@ export default function Banner({ title, subtitle, images, promo }) {
               </h3>
               <div className="gsap-hero-promo mt-8 text-blue-100 leading-relaxed tracking-wide" >
                 <ReactMarkdown children={promo?.description}/>
-              </div>
-              <div className="gsap-hero-promo mt-12 text-center">
-                <button className="btn btn--s bg-white text-blue-700 hover:bg-blue-700 border-white border-2 hover:text-white">
-                  Lees meer
-                </button>
               </div>
             </div>
           </div>
