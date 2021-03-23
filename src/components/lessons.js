@@ -1,5 +1,6 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
+import PolkaTitle from "./polkaTitle";
 
 const Lesson = (lesson, { i }) => {
   const flip = i % 2 !== 0;
@@ -11,25 +12,24 @@ const Lesson = (lesson, { i }) => {
         flip ? "lg:flex-row-reverse" : ""
       } lg:items-stretch py-10 lg:py-16`}
     >
-      <div className="relative flex-1 lg:max-w-md">
-        <div className="absolute bg-polka-dots bg-polka-dots--title mt-4 bg-repeat"></div>
-
-        <div className="relative lg:flex lg:flex-col lg:justify-between lg:h-full">
-          <h2 className="gsap-scroll-appear-left heading-2 font-extrabold text-gray-700 pl-4 border-l-8 border-orange-500">
+      <div className="flex-1 lg:max-w-md lg:flex lg:flex-col lg:justify-between lg:h-full">
+        <PolkaTitle>
+          <h2 className="gsap-scroll-appear-left heading-2 pl-4 font-extrabold text-gray-700 border-l-8 border-orange-500">
             {lesson.name}
           </h2>
+        </PolkaTitle>
 
-          <ReactMarkdown
-            className="gsap-scroll-appear-left mt-16 text-gray-800 leading-relaxed tracking-wider"
-            children={lesson.description}
-          />
+        <ReactMarkdown
+          className="gsap-scroll-appear-left mt-16 text-gray-800 leading-relaxed tracking-wider"
+          children={lesson.description}
+        />
 
-          <div className="gsap-scroll-appear-left mt-16 text-center">
-            <button className="btn btn--s border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white">
-              Lees meer
-            </button>
-          </div>
+        <div className="gsap-scroll-appear-left mt-16 text-center">
+          <button className="btn btn--s border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white">
+            Lees meer
+          </button>
         </div>
+
       </div>
 
       <div className="gsap-scroll-appear-right flex-1 lg:max-w-md mt-10 lg:mt-0">
@@ -101,7 +101,8 @@ export default function Lessons({ lessonGroups }) {
             {lessonGroup.lessons.map((lesson, i) =>
               Lesson(lesson, { i })
             )}
-            <div className="gsap-scroll-trigger">
+            {/* relative z-10 in order to be above triangle bg below */}
+            <div className="gsap-scroll-trigger relative z-10">
               <Teacher i={i} teacher={lessonGroup.teacher} />
             </div>
           </div>

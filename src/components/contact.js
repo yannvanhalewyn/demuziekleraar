@@ -1,3 +1,5 @@
+import PolkaTitle from "./polkaTitle";
+
 const PhoneIcon = ({ className }) => {
   return (
     <svg className={className} viewBox="0 0 24 24">
@@ -33,10 +35,10 @@ const InstagramIcon = ({ className }) => {
 };
 
 const TextInputGroup = ({ className, label, type, minLength, id, name }) => {
-  const inputClasses = "text-gray-700 border-b border-gray-400 bg-transparent outline-none placeholder-blue-300 placeholder-opacity-30 focus:border-orange-600"
+  const inputClasses = "text-gray-700 border-b border-gray-400 bg-gray-50 rounded-md outline-none placeholder-blue-300 placeholder-opacity-30 focus:border-orange-500"
 
   return (
-    <p className={"text-gray-500 focus-within:text-orange-600 " + className}>
+    <p className={"text-gray-500 focus-within:text-orange-500 " + className}>
       <label className="block font-semibold uppercase tracking-wide text-sm" htmlFor={id}>
         {label}
       </label>
@@ -67,12 +69,12 @@ const Contact = (props) => {
       <div id="contact" className="m-container py-12 md:py-24 lg:flex">
 
         <div className="lg:pr-12 lg:flex-1 lg:flex lg:flex-col lg:justify-between">
-          <div className="relative">
-            <div className="absolute bg-polka-dots--blue-900 bg-polka-dots--title w-24 h-24 mt-4 bg-repeat"></div>
-            <h2 className="gsap-scroll-appear-left relative heading-2 font-extrabold text-white pl-4 border-l-8 border-red-500">
+
+          <PolkaTitle dotsClassName="bg-polka-dots--blue-900">
+            <h2 className="gsap-scroll-appear-left heading-2 font-extrabold text-white pl-4 border-l-8 border-red-500">
               Contact
             </h2>
-          </div>
+          </PolkaTitle>
 
           <p className="gsap-scroll-appear-left mt-16 text-blue-200 leading-relaxed tracking-wider">
             {props.message}
@@ -86,7 +88,7 @@ const Contact = (props) => {
               return (
                 <li key={text} className={`gsap-scroll-appear-left ${i === 0 ? "" : "mt-6 md:mt-8"}`}>
                   <a
-                    className="group flex w-72 items-center p-4 rounded-lg bg-blue-700 shadow-inner transition duration-200 hover:bg-blue-900 hover:shadow"
+                    className="group flex w-72 items-center p-4 rounded-lg bg-blue-700 shadow-inner hover:bg-blue-900 hover:shadow"
                     href={link}
                   >
                     <Icon
@@ -104,13 +106,13 @@ const Contact = (props) => {
 
           <ul className="mt-8 flex gsap-scroll-appear-left">
             <li>
-              <a className="block p-4 rounded-2xl transition duration-200 hover:bg-blue-900" target="_blank" href={props.youtubeUrl}>
+              <a className="block p-4 rounded-2xl hover:bg-blue-900" target="_blank" href={props.youtubeUrl}>
                 <YoutubeIcon className="w-8 h-8 fill-current text-blue-200"/>
               </a>
             </li>
 
             <li>
-              <a className="block p-4 rounded-2xl transition duration-200 hover:bg-blue-900" target="_blank" href={props.instagramUrl}>
+              <a className="block p-4 rounded-2xl hover:bg-blue-900" target="_blank" href={props.instagramUrl}>
                 <InstagramIcon className="w-8 h-8 fill-current text-blue-200"/>
               </a>
             </li>

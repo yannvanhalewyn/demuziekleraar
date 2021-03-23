@@ -26,10 +26,7 @@ button:active {
 @screen md { .heading-3 { @apply text-2xl; } }
 
 .btn {
-    @apply px-8 py-4 font-bold rounded-md
-}
-.btn:focus {
-    @apply border-white;
+    @apply px-8 py-4 font-bold rounded-md outline-none;
 }
 
 .btn--s {
@@ -37,27 +34,15 @@ button:active {
 }
 
 .btn--red {
-    @apply bg-red-500 text-white
-}
-
-.btn--red:hover {
-    @apply bg-red-600
+    @apply bg-red-500 text-white hover:bg-red-600;
 }
 
 .btn--blue {
-    @apply bg-blue-500 text-white
-}
-
-.btn--blue:hover {
-    @apply bg-blue-600
+    @apply bg-blue-500 text-white hover:bg-blue-600;
 }
 
 .btn--orange {
-    @apply bg-orange-500 text-white
-}
-
-.btn--orange:hover {
-    @apply bg-orange-600
+    @apply bg-orange-500 text-white hover:bg-orange-600;
 }
 
 .bg-quarter-oval {
@@ -74,6 +59,10 @@ button:active {
 
 .bg-polka-dots--blue-900 {
     background-image: url("data:image/svg+xml,%3Csvg width='20px' height='20px' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='dots' fill='%2300354B'%3E%3Ccircle id='Oval-377-Copy-9' cx='3' cy='3' r='3'%3E%3C/circle%3E%3Ccircle id='Oval-377-Copy-14' cx='13' cy='13' r='3'%3E%3C/circle%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+.bg-polka-dots--red-600 {
+    background-image: url("data:image/svg+xml,%3Csvg width='20px' height='20px' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='dots' fill='%23C32F2C'%3E%3Ccircle id='Oval-377-Copy-9' cx='3' cy='3' r='3'%3E%3C/circle%3E%3Ccircle id='Oval-377-Copy-14' cx='13' cy='13' r='3'%3E%3C/circle%3E%3C/g%3E%3C/svg%3E%0A");
 }
 
 .bg-polka-dots--orange {
@@ -107,8 +96,8 @@ button:active {
 @screen sm { .m-container { @apply px-12 py-6; } }
 @screen md { .m-container { @apply px-12 py-4; } }
 
-.strong-orange-500 strong {
-    @apply text-orange-500;
+.strong-orange-400 strong {
+    @apply text-orange-400 font-semibold;
 }
 
 .strong-white strong {
@@ -132,7 +121,7 @@ button:active {
 }
 
 .img-frame {
-    @apply bg-no-repeat bg-cover bg-center border-6 rounded-4xl
+    @apply bg-no-repeat bg-cover bg-center border-6 rounded-2xl shadow-xl
 }
 
 .pricing-toggle {

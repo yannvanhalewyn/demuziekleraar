@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import SignupButton from "./signup_button";
+import PolkaTitle from "./polkaTitle";
 
 export default function Pricing({ pricingModels }) {
   // Used in netlify cms preview, sinds we don't hydrate our production app for
@@ -10,13 +11,13 @@ export default function Pricing({ pricingModels }) {
   return (
     <div id="pricing" className="bg-blue-700 text-white">
       <div className="gsap-scroll-trigger m-container pt-24 pb-12">
-        <div className="relative">
-          <div className="absolute bg-polka-dots--blue bg-polka-dots--title w-24 h-24 mt-4 bg-repeat"></div>
 
-          <h2 className="gsap-scroll-appear-left relative heading-2 font-extrabold text-white pl-4 border-l-8 border-red-600">
+
+        <PolkaTitle dotsClassName="bg-polka-dots--blue">
+          <h2 className="gsap-scroll-appear-left heading-2 pl-4 font-extrabold text-white border-l-8 border-red-600">
             Tarieven
           </h2>
-        </div>
+        </PolkaTitle>
 
         <div className="mt-16">
           <div className="gsap-scroll-appear-left flex items-center text-blue-300 font-semibold">
@@ -106,7 +107,8 @@ export default function Pricing({ pricingModels }) {
                         >
                           €
                         </span>
-                        {/* 'toggled' is used by admin preview, vanilla js on homepage */}
+                        {/* 'toggled' is used by admin preview, vanilla js in
+                        production so we don't have to load in React */}
                         <span className="js-price-children font-bold text-5xl" >
                           {toggled
                             ? pricingModel.priceAdults
@@ -144,7 +146,7 @@ export default function Pricing({ pricingModels }) {
                             </svg>
                           </div>
                           <ReactMarkdown
-                            className="gsap-scrolltrigger ml-4 strong-orange-500"
+                            className="gsap-scrolltrigger ml-4 strong-orange-400"
                             children={feature.name}
                           />
                         </div>
