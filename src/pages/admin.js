@@ -17,10 +17,16 @@ import Lessons from "../components/lessons";
 import Pricing from "../components/pricing";
 import Contact from "../components/contact";
 
-const imageField = (label, name) => {
+const imageField = (label, name, sizeHint) => {
+  let description;
+  if (sizeHint) {
+    description = `Ongeveer ${sizeHint} pixels breed`
+  }
+
   return {
     label,
     name,
+    description,
     component: "image",
     parse: (media) => `/media/${media.filename}`,
   };
@@ -71,7 +77,7 @@ const seoFormConfig = {
     textField("og:locale", "og_locale"),
     textField("og:site_name", "og_site_name"),
     textField("og:url", "og_url"),
-    imageField("og:image", "og_image_url"),
+    imageField("og:image", "og_image_url", 400),
   ]
 }
 
@@ -82,9 +88,9 @@ const bannerFormConfig = {
   fields: [
     richField("Title", "title"),
     richField("Ondertitel", "subtitle"),
-    imageField("Afbeelding 1", "images.image1"),
-    imageField("Afbeelding 2", "images.image2"),
-    imageField("Afbeelding 3", "images.image3"),
+    imageField("Afbeelding 1", "images.image1", 230),
+    imageField("Afbeelding 2", "images.image2", 340),
+    imageField("Afbeelding 3", "images.image3", 230),
     {
       label: "Promo",
       name: "promo",
@@ -92,7 +98,7 @@ const bannerFormConfig = {
       fields: [
         textField("Titel", "title"),
         richField("Beschrijving", "description"),
-        imageField("Afbeelding", "image"),
+        imageField("Afbeelding", "image", 450),
       ],
     },
   ],
@@ -122,10 +128,10 @@ const lessonsFormConfig = {
       groupListField("Lessen", "lessons", defaultNameProps("Nieuwe les"), [
         textField("Naam", "name"),
         richField("Beschrijving", "description"),
-        imageField("Afbeelding", "image"),
+        imageField("Afbeelding", "image", 450),
       ]),
       textField("Docent", "teacher.name"),
-      imageField("Docent Afbeelding", "teacher.image"),
+      imageField("Docent Afbeelding", "teacher.image", 500),
       groupListField("Docent Prestaties", "teacher.achievements", defaultLabelProps("description", "Nieuwe prestatie"), [
         imageField("Icoon", "icon"),
         richField("Beschrijving", "description"),

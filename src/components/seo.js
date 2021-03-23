@@ -1,7 +1,6 @@
 import { NextSeo } from 'next-seo';
 
 export default function SEO(props) {
-  console.log(props)
   return (
     <NextSeo
       title={props.title}
