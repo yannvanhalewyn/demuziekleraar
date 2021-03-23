@@ -134,7 +134,7 @@ const Contact = (props) => {
             <TextInputGroup className="mt-8" label="Bericht" id="body" type="textarea" />
 
             <div className="mt-8 align-top text-center sm:text-left lg:text-center">
-              <button type="submit" className="btn btn--orange">
+              <button type="submit" className="btn btn--orange group">
 
 
                 <div className="flex items-center">
