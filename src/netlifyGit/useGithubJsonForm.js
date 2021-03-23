@@ -27,7 +27,7 @@ export const useGithubJsonForm = (formConfig) => {
         accessToken: accessToken(currentUser),
         fileContents: JSON.stringify(values, null, 2),
         encode: true,
-        sha: githubFile.sha,
+        sha: githubFile?.sha,
         message: `Update ${formConfig.fileName} by ${fullName(currentUser)}`,
       });
 
