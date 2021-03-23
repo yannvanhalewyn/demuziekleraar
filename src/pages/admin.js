@@ -10,6 +10,7 @@ import {
   accessToken,
 } from "../components/netlifyIdentityProvider";
 
+import SEO from "../components/seo";
 import Header from "../components/header";
 import Banner from "../components/banner";
 import Lessons from "../components/lessons";
@@ -28,6 +29,10 @@ const imageField = (label, name) => {
 const textField = (label, name) => {
   return { name, label, component: "text" };
 };
+
+const textAreaField = (label, name) => {
+  return { name, label,  component: "textarea"}
+}
 
 const richField = (label, name) => {
   return { name, label, component: "markdown" };
@@ -50,6 +55,25 @@ const defaultLabelProps = (key, default_) => {
 }
 
 const defaultNameProps = default_ => defaultLabelProps("name", default_);
+
+const seoFormConfig = {
+  id: "4-SEO",
+  label: "SEO",
+  fileName: "data/seo.json",
+  fields: [
+    textField("Titel", "title"),
+    textAreaField("Beschrijving", "description"),
+    textField("Canonical", "canonical"),
+
+    textField("og:title", "og_title"),
+    textAreaField("og:description", "og_description"),
+    textField("og:type", "og_type"),
+    textField("og:locale", "og_locale"),
+    textField("og:site_name", "og_site_name"),
+    textField("og:url", "og_url"),
+    imageField("og:image", "og_image_url"),
+  ]
+}
 
 const bannerFormConfig = {
   id: "3-banner",
@@ -143,11 +167,13 @@ const contactFormConfig = {
 }
 
 const HomePreview = () => {
+  const [seo, seoForm] = useGithubJsonForm(seoFormConfig);
   const [banner, bannerForm] = useGithubJsonForm(bannerFormConfig);
   const [lessons, lessonsForm] = useGithubJsonForm(lessonsFormConfig);
   const [pricing, pricingForm] = useGithubJsonForm(pricingFormConfig);
   const [contact, contactForm] = useGithubJsonForm(contactFormConfig);
 
+  usePlugin(seoForm);
   usePlugin(bannerForm);
   usePlugin(lessonsForm);
   usePlugin(pricingForm);
@@ -155,6 +181,7 @@ const HomePreview = () => {
 
   return (
     <>
+      <SEO {...seo} />
       <Header {...contact} />
       <Banner {...banner}/>
       <Lessons {...lessons} />

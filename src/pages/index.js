@@ -1,11 +1,13 @@
 import React from "react";
 import Head from "next/head";
+
 import { readData } from "../content";
 import Header from "../components/header";
 import Banner from "../components/banner";
 import Lessons from "../components/lessons";
 import Pricing from "../components/pricing";
 import Contact from "../components/contact";
+import SEO from "../components/seo";
 
 export async function getStaticProps() {
   return {
@@ -27,12 +29,14 @@ export const config = {
 export default function Home(props) {
   return (
     <React.Fragment>
+      <SEO {...props.seo}/>
       <Head>
         <title>De Muziekleraar | Home</title>
         <script src="/js/app.js" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js" />
       </Head>
+
       <Header {...props.contact}/>
       <Banner {...props.banner}/>
       <Lessons {...props.lessons}/>

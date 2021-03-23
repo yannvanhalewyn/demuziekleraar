@@ -10,20 +10,21 @@
   "author": "Yann Vanhalewyn",
   "license": "MIT",
   "devDependencies": {
+    "current-git-branch": "^1.1.0",
     "postcss": "^8.1.8",
     "postcss-preset-env": "^6.7.0",
-    "tailwindcss": "^2.0.1",
-    "current-git-branch": "^1.1.0"
+    "tailwindcss": "^2.0.1"
   },
   "dependencies": {
     "netlify-identity-widget": "^1.9.1",
     "next": "^10.0.2",
+    "next-seo": "^4.22.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-markdown": "^5.0.3",
-    "react-tinacms-editor": "^0.34.0",
-    "react-tinacms-inline": "^0.34.0",
+    "react-tinacms-editor": "^0.38.0",
+    "react-tinacms-inline": "^0.38.0",
     "styled-components": "^5.2.1",
-    "tinacms": "^0.34.0"
+    "tinacms": "^0.38.0"
   }
 }
