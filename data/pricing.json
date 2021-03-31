@@ -2,10 +2,10 @@
   "pricingModels": [
     {
       "name": "Groepsles",
-      "priceChildren": "17,50",
-      "priceAdults": "22,50",
-      "priceSubtitle": "/ p.p. 45 min",
-      "location": "Basisschool de Obb in Blaricum",
+      "priceChildren": "30",
+      "priceAdults": "37",
+      "priceSubtitle": "/ p.p. 60 min",
+      "location": "Bij iemand thuis",
       "features": [
         {
           "name": "Lessen op de **openbare basisschool** in **Blaricum**"
