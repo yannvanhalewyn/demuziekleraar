@@ -2,8 +2,8 @@
   "pricingModels": [
     {
       "name": "Groepsles",
-      "priceChildren": "30",
-      "priceAdults": "37",
+      "priceChildren": "25",
+      "priceAdults": "31",
       "priceSubtitle": "/ p.p. 60 min",
       "location": "Thuis",
       "features": [
@@ -17,7 +17,7 @@
           "name": "**Cursusmap** met partijen en arrangementen"
         },
         {
-          "name": "Elke les een **muziekquiz** en leuke **prijzen**!"
+          "name": "Minimaal **drie** **leerlingen** per groepsles"
         }
       ]
     },
