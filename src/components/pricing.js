@@ -146,7 +146,7 @@ export default function Pricing({ pricingModels }) {
                             </svg>
                           </div>
                           <ReactMarkdown
-                            className="gsap-scrolltrigger ml-4 strong-orange-400"
+                            className="gsap-scrolltrigger ml-4 strong-white"
                             children={feature.name}
                           />
                         </div>
