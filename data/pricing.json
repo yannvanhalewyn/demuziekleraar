@@ -24,8 +24,8 @@
     {
       "name": "Privé-Les",
       "location": "Thuis",
-      "priceChildren": "35,-",
-      "priceAdults": "42,50",
+      "priceChildren": "25,-",
+      "priceAdults": "31",
       "priceSubtitle": "/ 30 min",
       "features": [
         {
@@ -41,7 +41,7 @@
           "name": "Aanvullend **lesmateriaal** op **Youtube**"
         }
       ],
-      "discount": "2 of meer kinderen in huis? **€ 30,-**"
+      "discount": ""
     }
   ]
 }
