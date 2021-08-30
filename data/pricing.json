@@ -2,8 +2,8 @@
   "pricingModels": [
     {
       "name": "Groepsles",
-      "priceChildren": "25",
-      "priceAdults": "31",
+      "priceChildren": "20",
+      "priceAdults": "25",
       "priceSubtitle": "/ p.p. 60 min",
       "location": "Thuis",
       "features": [
