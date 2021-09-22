@@ -26,15 +26,27 @@ export const config = {
   unstable_runtimeJS: false
 }
 
+const analytics_script = `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-206717175-1');
+`
+
 export default function Home(props) {
   return (
     <React.Fragment>
       <SEO {...props.seo}/>
       <Head>
-        <title>De Muziekleraar | Home</title>
+        <title>De Muziekleraar</title>
         <script src="/js/app.js" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-206717175-1">
+        </script>
+        <script dangerouslySetInnerHTML={{__html: analytics_script}}>
+        </script>
       </Head>
 
       <Header {...props.contact}/>
